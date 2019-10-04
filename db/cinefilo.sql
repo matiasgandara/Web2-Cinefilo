@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-09-2019 a las 20:58:05
+-- Tiempo de generación: 04-10-2019 a las 21:19:23
 -- Versión del servidor: 10.1.39-MariaDB
 -- Versión de PHP: 7.3.5
 
@@ -47,7 +47,20 @@ CREATE TABLE `film` (
   `episodios` int(11) NOT NULL,
   `temporadas` int(11) NOT NULL,
   `duracion` time NOT NULL,
-  `tipo` set('peliculas','series','','') COLLATE latin1_spanish_ci NOT NULL
+  `tipo` set('peliculas','series','','') COLLATE latin1_spanish_ci NOT NULL,
+  `nombre_imagen` varchar(200) COLLATE latin1_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id` int(11) NOT NULL,
+  `nombre_usuario` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
+  `clave` char(32) COLLATE latin1_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
@@ -69,6 +82,13 @@ ALTER TABLE `film`
   ADD KEY `genero` (`genero`);
 
 --
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `unique` (`nombre_usuario`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -82,6 +102,12 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `film`
 --
 ALTER TABLE `film`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
