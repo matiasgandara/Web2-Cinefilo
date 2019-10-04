@@ -37,7 +37,7 @@ class FilmModel{
 
     public function InsertarFilm($genero,$nombre,$sinopsis,$episodios,$temporadas,$duracion,$tipo){
 
-        $sentencia = $this->db->prepare("INSERT INTO film (genero, nombre, sinopsis, episodios, temporadas, duracion, tipo, nombreimagen) VALUES(?,?,?,?,?,?,?,?)");
+        $sentencia = $this->db->prepare("INSERT INTO film (genero, nombre, sinopsis, episodios, temporadas, duracion, tipo, nombre_imagen) VALUES(?,?,?,?,?,?,?,?)");
         $sentencia->execute(array($genero,$nombre,$sinopsis,$episodios,$temporadas,$duracion,$tipo,$nombreimagen));
     }
 
