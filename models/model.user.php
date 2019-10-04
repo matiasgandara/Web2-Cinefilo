@@ -9,7 +9,7 @@ private $db;
     }
 
     public function GetPassword($user){
-        $sentencia = $this->db->prepare( "SELECT * FROM usuarios WHERE nombreusuario = ?");
+        $sentencia = $this->db->prepare( "SELECT * FROM usuarios WHERE nombre_usuario = ?");
         $sentencia->execute(array($user));
         
         $pass = $sentencia->fetch(PDO::FETCH_OBJ);
