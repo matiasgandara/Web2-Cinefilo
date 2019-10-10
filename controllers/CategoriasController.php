@@ -1,14 +1,14 @@
 <?php
-require_once "./models/model.categorias.php";
-require_once "./views/views.categorias.php";
+require_once "./models/categoriasModel.php";
+require_once "./views/categoriasView.php";
 
-class CategoriasController{
+class categoriasController{
     private $model;
     private $view;
 
 	function __construct(){
-        $this->model = new CategoriasModel();
-        $this->view = new CategoriasView();
+        $this->model = new categoriasModel();
+        $this->view = new categoriasView();
     }
     public function checkLogIn(){
         session_start();

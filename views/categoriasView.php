@@ -1,7 +1,7 @@
 <?php 
 require('libs/Smarty.class.php');
 
-class CategoriasView {
+class categoriasView {
 
     function __construct(){
 

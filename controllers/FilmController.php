@@ -1,14 +1,14 @@
 <?php
-require_once "./models/model.film.php";
-require_once "./views/views.film.php";
+require_once "./models/filmModel.php";
+require_once "./views/filmView.php";
 
-class FilmController{
+class filmController{
     private $model;
     private $view;
 
 	function __construct(){
-        $this->model = new FilmModel();
-        $this->view = new FilmView();
+        $this->model = new filmModel();
+        $this->view = new filmView();
     }
 
     public function checkLogIn(){
@@ -26,8 +26,8 @@ class FilmController{
         $_SESSION['LAST_ACTIVITY'] = time();
     }
     
-    public function GetFilms(){
-        $film = $this->model->GetFilm();
+    public function GetFilms($id, $tipo){
+        $film = $this->model->GetFilm($id, $tipo);
         $this->view->DisplayFilm($film);
     }
     

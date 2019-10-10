@@ -1,7 +1,7 @@
 <?php
 
 
-class CategoriasModel{
+class categoriasModel{
     private $db;
 
 

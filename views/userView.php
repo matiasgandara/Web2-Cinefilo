@@ -3,7 +3,7 @@
 require_once('libs/Smarty.class.php');
 
 
-class UserView {
+class userView {
 
     function __construct(){
 

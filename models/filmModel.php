@@ -1,7 +1,7 @@
 <?php
 
 
-class FilmModel{
+class filmModel{
     private $db;
 
 

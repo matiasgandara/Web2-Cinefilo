@@ -1,6 +1,6 @@
 <?php
-require_once "./models/model.user.php";
-require_once "./views/views.user.php";
+require_once "./models/userModel.php";
+require_once "./views/userView.php";
 
 class UserController {
 
