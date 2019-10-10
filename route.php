@@ -1,17 +1,19 @@
 <?php
 
 
-require_once "Controllers/CategoriasController.php";
-require_once "Controllers/FilmController.php";
+require_once "Controllers/categoriasController.php";
+require_once "Controllers/filmController.php";
+require_once "Controllers/userController.php";
 
 $action = $_GET["action"];
 define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
 define("URL_REGISTRO", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/registro');
-define("URL_REGISTRO", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/series');
-define("URL_REGISTRO", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/peliculas');
+define("URL_SERIES", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/series');
+define("URL_PELICULAS", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/peliculas');
 
-$controllercat = new CategotriasController();
-$controllerfilm = new FilmController();
+$controllercat = new categotriasController();
+$controllerfilm = new filmController();
+$controlleruser = new userController();
 
 if($action == ''){
     $controller->GetCategorias();
@@ -25,9 +27,11 @@ if($action == ''){
         }elseif($partesURL[0] == "peliculas") {
             $controllerfilm->GetFilm($partesURL[1]);
         }elseif($partesURL[0] == "borrar") {
-            $controller->DelFilm($partesURL[1]);
+            $controllerfilm->DelFilm($partesURL[1]);
         }elseif($partesURL[0] == "agregar") {
-            $controller->AddFilm($partesURL[1]);
+            $controllerfilm->AddFilm($partesURL[1]);
+        }elseif($partesURL[0] == "registro") {
+            $controlleruser->AddFilm($partesURL[1]);
         }
     }
 }
