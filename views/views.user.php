@@ -9,12 +9,12 @@ class UserView {
 
     }
 
-    public function DisplayLogin(){
+    public function DisplayRegistro(){
 
         $smarty = new Smarty();
-        $smarty->assign('titulo',"Login");
-        $smarty->assign('BASE_URL',BASE_URL);
-        $smarty->display('templates/login.tpl');
+        $smarty->assign('titulo',"registro");
+        $smarty->assign('BASE_URL', URL_REGISTRO);
+        $smarty->display('templates/registro.tpl');
     }
 }
 

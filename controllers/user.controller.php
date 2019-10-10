@@ -28,10 +28,23 @@ class UserController {
        // header("Location: " . BASE_URL);
     }
 
-    public function Login(){
-        $this->view->DisplayLogin();
+    public function registrarUsuario(){
+        $user = $_POST['user'];
+        
+        $password1 = $_POST['pass1'];
+        $password2 = $_POST['pass2'];
+
+        if(isset($usuario) && $usuario != null && $password1 == $password2){
+            $this->model->Registro($user, $password1);
+        }else{
+            header("Location: " . URL_REGISTRO);
+        }
     }
 
+/*     public function Login(){
+        $this->view->DisplayLogin();
+    }
+ */
     public function Logout(){
         session_start();
         session_destroy();

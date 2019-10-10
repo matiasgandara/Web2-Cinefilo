@@ -16,4 +16,9 @@ private $db;
         
         return $pass;
     }
+
+    public function Registro($user, $pass){
+        $sentencia = $this->db->prepare("INSERT INTO usuarios (nombre_usuario, clave) VALUES(?,?)");
+        $sentencia->execute(array($user, $pass));
+    }
 }
