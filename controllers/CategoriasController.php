@@ -10,10 +10,30 @@ class CategoriasController{
         $this->model = new CategoriasModel();
         $this->view = new CategoriasView();
     }
-    
-    public function GetCategorias(){
-        $categorias = $this->model->GetCategorias();
-        $this->view->DisplayCategorias($categorias);
+    public function checkLogIn(){
+        session_start();
+        
+        if(!isset($_SESSION['userId'])){
+            header("Location: " . URL_LOGIN);
+            die();
+        }
+
+        if ( isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 5000)) { 
+            header("Location: " . URL_LOGOUT);
+            die(); // destruye la sesión, y vuelve al login
+        } 
+        $_SESSION['LAST_ACTIVITY'] = time();
+    }
+
+
+
+    public function getCategorias(){
+        $categorias = $this->model->getCategorias();
+        $this->view->displayCategorias($categorias);
+    }
+
+    public function setCategorias(){
+
     }
 
 }

@@ -1,7 +1,7 @@
 {include file="header.tpl"}
 
-            {foreach from=$lista_tareas item=tarea}
-            {if $tarea->finalizada eq 1}
+            {foreach from=$categorias item=categoria}
+            {if $user->finalizada eq 1}
                 <strike><li>{$tarea->titulo}: {$tarea->descripcion}</li></strike>
             {else}
                 <li>{$tarea->titulo}: {$tarea->descripcion} - <a href='finalizar/{$tarea->id}'>Finalizar</a> - <a href='borrar/{$tarea->id}'>Borrar</a></li>

@@ -9,21 +9,21 @@ class FilmModel{
         $this->db = new PDO('mysql:host=localhost;'.'dbname=cinefilo;charset=utf8','root','');
     }
 
-    /* public function Getfilms(){
+    public function getfilms(){
         $sentencia = $this->db->prepare("SELECT * from film ORDER BY nombre ASC");
         $sentencia->execute();
         $films = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $films;
-    } */
+    }
 
-    public function GetCategoria($genero){
+    public function getCategoria($genero){
             $sentencia = $this->db->prepare("SELECT * FROM film WHERE genero = ? ORDER BY nombre ASC");
             $sentencia->execute(array($id));
             $film = $sentencia->fetch(PDO::FETCH_OBJ);
             return $film;
     }
 
-    public function GetFilms($id, $tipo){
+    public function getFilms($id, $tipo){
         if ($tipo)
             {$sentencia = $this->db->prepare("SELECT * from film AS f JOIN categorias AS c ON c.genero = f.genero WHERE c.id = ? AND f.tipo = ? ORDER BY nombre ASC");
             $sentencia->execute(array($id, $tipo));
@@ -35,13 +35,13 @@ class FilmModel{
         return $categoria;
     }
 
-    public function InsertarFilm($genero,$nombre,$sinopsis,$episodios,$temporadas,$duracion,$tipo){
+    public function insertarFilm($genero,$nombre,$sinopsis,$episodios,$temporadas,$duracion,$tipo){
 
         $sentencia = $this->db->prepare("INSERT INTO film (genero, nombre, sinopsis, episodios, temporadas, duracion, tipo, nombre_imagen) VALUES(?,?,?,?,?,?,?,?)");
         $sentencia->execute(array($genero,$nombre,$sinopsis,$episodios,$temporadas,$duracion,$tipo,$nombreimagen));
     }
 
-    public function BorrarFilm($id){
+    public function borrarFilm($id){
         $sentencia = $this->db->prepare("DELETE FROM film WHERE id=?");
         $sentencia->execute(array($id));
     }
