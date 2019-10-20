@@ -12,21 +12,7 @@ class UserController {
         $this->view = new UserView();
     }
     
-    public function IniciarSesion(){
-        $password = $_POST['pass'];
 
-        $usuario = $this->model->GetPassword($_POST['user']);
-
-        if (isset($usuario) && $usuario != null && password_verify($password, $usuario->clave)){
-            session_start();
-            $_SESSION['user'] = $usuario->nombreusuario;
-            $_SESSION['userId'] = $usuario->id;
-            header("Location: " . BASE_URL);
-        }else{
-            header("Location: " . URL_REGISTRO);
-        }
-       // header("Location: " . BASE_URL);
-    }
 
     public function registrarUsuario(){
         $user = $_POST['user'];

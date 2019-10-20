@@ -16,5 +16,8 @@
             <input type="checkbox" name="finalizada" id="finalizada">
             <input type="submit" value="Insertar">
         </form>
-    </body>
-</html>
+       
+
+{include file="loged.tpl"}
+{include file="footer.tpl"}
+
