@@ -1,3 +1,5 @@
+{include file="header.tpl"}
+
 <form action="verify" method="POST">
         <div class="bg-secondary text-white px-4 py-2">
         <div class="form-group">
@@ -22,3 +24,5 @@
         </div>
     </div>
 </form>
+
+{include file="footer.tpl"}

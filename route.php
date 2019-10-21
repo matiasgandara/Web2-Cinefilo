@@ -1,7 +1,7 @@
 <?php
 
 
-require_once "controllers/CategoriasController.php";
+require_once "controllers/HomeController.php";
 require_once "controllers/FilmController.php";
 require_once "controllers/userController.php";
 
@@ -11,7 +11,7 @@ define("URL_REGISTRO", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PO
 define("URL_SERIES", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/series');
 define("URL_PELICULAS", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/peliculas');
 
-$controllercat = new categotriasController();
+$controllerhome = new HomeController();
 $controllerfilm = new filmController();
 $controlleruser = new userController();
 
@@ -21,7 +21,7 @@ if($action == ''){
     if (isset($action)){
         $partesURL = explode("/", $action);
         if($partesURL[0] == "home"){
-            $controllercat->GetHome();
+            $controllerhome->GetHome();
         }elseif($partesURL[0] == "series") {
             $controllerfilm->GetFilm($partesURL[1]);
         }elseif($partesURL[0] == "peliculas") {
@@ -32,7 +32,8 @@ if($action == ''){
             $controllerfilm->AddFilm($partesURL[1]);
         }elseif($partesURL[0] == "registro") {
             $controlleruser->AddFilm($partesURL[1]);
-        }
+        }elseif($partesURL[0] == "login") {
+            $controlleruser->IniciarSesion($partesURL[1]);
     }
 }
 
