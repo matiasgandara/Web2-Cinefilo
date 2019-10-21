@@ -9,7 +9,7 @@ class HomeView {
 
     public function DisplayHome(){
         $smarty = new Smarty();
-        $smarty->display('templates/home.tpl');
+        $smarty->display('templates/principal.tpl');
     }
 
     public function DisplayLogin($id){

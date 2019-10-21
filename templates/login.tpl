@@ -9,16 +9,17 @@
             <label for="exampleDropdownFormPassword2">Ingresá el Password</label>
             <input type="password" class="form-control" name="pass" id="exampleDropdownFormPassword2" placeholder="Password">
         </div>
-        {{* <div class="form-group">
+       {*  <div class="form-group">
             <div class="form-check">
             <input type="checkbox" class="form-check-input" id="dropdownCheck2">
             <label class="form-check-label" for="dropdownCheck2">
                 Recuérdame
             </label>
             </div>
-        </div> *}}
+        </div>  *}
         <button type="submit" class="btn btn-primary">Login</button>
+        <button class="btn btn-primary">Registrarse</button>
         </div>
     </form>
-    <button class="btn btn-primary"><a href="registro"> Registrarse</a></button>
-  </div>
+    
+</div>

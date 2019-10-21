@@ -32,7 +32,7 @@ class homeController{
 
     public function GetHome(){
 
-        if (checkLogIn()){
+        if ($this->checkLogIn()){
             $this->view->DisplayLogin($_SESSION['user']);
         }else{
             $this->view->DisplayHome();
