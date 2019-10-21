@@ -42,10 +42,10 @@ class UserController {
         }
     }
 
-/*     public function Login(){
-        $this->view->DisplayLogin();
+    public function registrar(){
+        $this->view->DisplayRegistro();
     }
- */
+
     public function Logout(){
         session_start();
         session_destroy();

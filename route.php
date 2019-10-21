@@ -23,15 +23,15 @@ if($action == ''){
         if($partesURL[0] == "home"){
             $controllerhome->GetHome();
         }elseif($partesURL[0] == "series") {
-            $controllerfilm->GetFilm($partesURL[1]);
+            $controllerfilm->GetSeries($partesURL[1]);
         }elseif($partesURL[0] == "peliculas") {
-            $controllerfilm->GetFilm($partesURL[1]);
+            $controllerfilm->GetPeliculas($partesURL[1]);
         }elseif($partesURL[0] == "borrar") {
             $controllerfilm->DelFilm($partesURL[1]);
         }elseif($partesURL[0] == "agregar") {
             $controllerfilm->AddFilm($partesURL[1]);
         }elseif($partesURL[0] == "registro") {
-            $controlleruser->AddFilm($partesURL[1]);
+            $controlleruser->registrar()($partesURL[1]);
         }elseif($partesURL[0] == "login") {
             $controlleruser->IniciarSesion($partesURL[1]);
     }

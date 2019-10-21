@@ -25,9 +25,14 @@ class filmController{
         $_SESSION['LAST_ACTIVITY'] = time();
     }
     
-    public function GetFilms($id, $tipo){
-        $film = $this->model->GetFilm($id, $tipo);
-        $this->view->DisplayFilm($film);
+    public function GetPeliculas($id){
+        $film = $this->model->getPeliculas($id);
+        $this->view->DisplayPeliculas($film);
+    }
+
+    public function GetSeries($id){
+        $film = $this->model->getSeries($id);
+        $this->view->DisplaySeries($film);
     }
     
 

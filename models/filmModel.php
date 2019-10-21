@@ -23,7 +23,7 @@ class filmModel{
             return $film;
     }
 
-    public function getFilms($id, $tipo){
+/*     public function getFilms($id, $tipo){
         if ($tipo)
             {$sentencia = $this->db->prepare("SELECT * from film AS f JOIN categorias AS c ON c.genero = f.genero WHERE c.id = ? AND f.tipo = ? ORDER BY nombre ASC");
             $sentencia->execute(array($id, $tipo));
@@ -33,6 +33,29 @@ class filmModel{
         }
         $categoria = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $categoria;
+    } */
+
+    public function getPeliculas($id){
+        if ($id){
+            $sentencia = $this->db->prepare("SELECT * from film AS f JOIN categorias AS c ON c.genero = f.genero WHERE c.id = ? AND f.tipo = 'peliculas' ORDER BY nombre ASC");
+            $sentencia->execute(array($id));
+        }else{
+            $sentencia = $this->db->prepare("SELECT * from film WHERE tipo = 'peliculas' ORDER BY nombre ASC");
+            $sentencia->execute();
+        }
+
+        $peliculas = $sentencia->fetchAll(PDO::FETCH_OBJ);
+    }
+
+    public function getSeries($id){
+        if ($id){
+            $sentencia = $this->db->prepare("SELECT * from film AS f JOIN categorias AS c ON c.genero = f.genero WHERE c.id = ? AND f.tipo = 'series' ORDER BY nombre ASC");
+            $sentencia->execute(array($id));
+        }else{
+            $sentencia = $this->db->prepare("SELECT * from film WHERE tipo = 'series' ORDER BY nombre ASC");
+            $sentencia->execute();
+        }
+        $peliculas = $sentencia->fetchAll(PDO::FETCH_OBJ);
     }
 
     public function insertarFilm($genero,$nombre,$sinopsis,$episodios,$temporadas,$duracion,$tipo){
