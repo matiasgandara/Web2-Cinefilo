@@ -9,12 +9,12 @@ class filmModel{
         $this->db = new PDO('mysql:host=localhost;'.'dbname=cinefilo;charset=utf8','root','');
     }
 
-    public function getfilms(){
+/*     public function getfilms(){
         $sentencia = $this->db->prepare("SELECT * from film ORDER BY nombre ASC");
         $sentencia->execute();
         $films = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $films;
-    }
+    } */
 
     public function getCategoria($genero){
             $sentencia = $this->db->prepare("SELECT * FROM film WHERE genero = ? ORDER BY nombre ASC");

@@ -36,5 +36,4 @@ if($action == ''){
             $controlleruser->IniciarSesion($partesURL[1]);
     }
 }
-
-?>
+}

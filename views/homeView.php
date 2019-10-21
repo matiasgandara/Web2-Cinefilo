@@ -18,3 +18,4 @@ class HomeView {
         $smarty->assign('idlogin', $id);
         $smarty->display('templates/homelogued.tpl');
     }
+}
