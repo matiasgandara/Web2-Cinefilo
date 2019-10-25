@@ -21,9 +21,9 @@ class UserController {
             session_start();
             $_SESSION['user'] = $usuario->nombreusuario;
             $_SESSION['userId'] = $usuario->id;
-            header("Location: " . BASE_URL);
+            header("Location: " . LOGGED);
         }else{
-            header("Location: " . URL_REGISTRO);
+            header("Location: " . REGISTRO);
         }
        // header("Location: " . BASE_URL);
     }
@@ -36,7 +36,8 @@ class UserController {
         $password2 = $_POST['pass2'];
 
         if(isset($usuario) && $usuario != null && $password1 == $password2){
-            $this->model->Registro($user, $password1);
+            $hash = password_hash($password1, PASSWORD_DEFAULT);
+            $this->model->Registro($user, $hash);
         }else{
             header("Location: " . URL_REGISTRO);
         }
