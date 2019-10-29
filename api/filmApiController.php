@@ -19,22 +19,34 @@ class FilmApiController {
         return json_decode($this->data);
     }
 
-    public function  getPeliculas($params = null) {
+    public function  getPeliculasId($params = null) {
 
         $id = $params[':ID'];
-        $films = $this->model->getPeliculas($id);
+        $films = $this->model->getPeliculasId($id);
         $this->view->response($films, 200);
     }
 
-    public function  getSeries($params = null) {
+    public function  getPeliculas() {
+
+        $films = $this->model->getPeliculas();
+        $this->view->response($films, 200);
+    }
+
+    public function  getSeriesId($params = null) {
 
         $id = $params[':ID'];
-        $films = $this->model->getSeries($id);
+        $films = $this->model->getSeriesId($id);
+        $this->view->response($films, 200);
+    }
+
+    public function  getSeries() {
+
+        $films = $this->model->getSeries();
         $this->view->response($films, 200);
     }
 
     
-    public function deleteFilm($params = null) {
+    public function borrarFilm($params = null) {
         $id = $params[':ID'];
         $film = $this->model->get($id);
         if ($film) {
@@ -44,10 +56,10 @@ class FilmApiController {
             $this->view->response("El film con el id={$id} no existe", 404);
     }
 
-    public function addFilm($params = null) {
+    public function insertarPelicula($params = null) {
         $data = $this->getData();
 
-        $id = $this->model->insertarFilm($data->genero, $data->nombre, $data->sinopsis, $data->episodios, $data->temporadas, $data->duracion, $data->tipo);
+        $id = $this->model->insertarPelicula($data->genero, $data->nombre, $data->sinopsis, $data->duracion, $data->nombre_imagen);
         
         $film = $this->model->get($id);
         if ($film)
@@ -57,13 +69,38 @@ class FilmApiController {
 
     }
 
-    public function updateTask($params = null) {
+    public function insertarSerie($params = null) {
+        $data = $this->getData();
+
+        $id = $this->model->insertarSerie($data->genero, $data->nombre, $data->sinopsis, $data->episodios,$data->temporadas, $data->nombre_imagen);
+        
+        $film = $this->model->get($id);
+        if ($film)
+            $this->view->response($film, 200);
+        else
+            $this->view->response("El film no fue creada", 500);
+
+    }
+
+    public function editarPelicula($params = null) {
         $id = $params[':ID'];
         $data = $this->getData();
         
         $film = $this->model->get($id);
         if ($film) {
-            $this->model->editarFilm($id,$genero,$nombre,$sinopsis,$episodios,$temporadas,$duracion,$tipo,$nombreimagen);
+            $this->model->editarPelicula($data->id,$data->genero,$data->nombre,$data->sinopsis,$data->duracion,$data->nombreimagen);
+            $this->view->response("El film fue modificada con exito.", 200);
+        } else
+            $this->view->response("El film con el id={$id} no existe", 404);
+    }
+
+    public function editarSerie($params = null) {
+        $id = $params[':ID'];
+        $data = $this->getData();
+        
+        $film = $this->model->get($id);
+        if ($film) {
+            $this->model->editarSerie($data->id,$data->genero,$data->nombre,$data->sinopsis,$data->episodios,$data->temporadas,$data->nombreimagen);
             $this->view->response("El film fue modificada con exito.", 200);
         } else
             $this->view->response("El film con el id={$id} no existe", 404);
