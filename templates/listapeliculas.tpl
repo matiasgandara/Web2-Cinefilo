@@ -20,4 +20,4 @@
               </article>
             {/foreach}
     </main>
-  </div> 
+</div> 

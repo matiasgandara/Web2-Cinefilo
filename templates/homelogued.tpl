@@ -16,7 +16,7 @@
             <input type="number" name="prioridad"  max="10">
             <input type="checkbox" name="finalizada" id="finalizada">
             <input type="submit" value="Insertar">
-        </form>
+    </form>
 
-{include file="loged.tpl"}
+{include file="logged.tpl"}
 {include file="footer.tpl"}

@@ -21,7 +21,7 @@
         <img src="image/cinefilo001.png" width="140" height="70" alt="logo de los cinéfilos">
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        aria-controls="navbarSupportedContent" aria-expanded="xfalse" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
@@ -40,6 +40,6 @@
 
       </div>
     </nav>
-
+    
   </div>
 <!-- FIN NAV -->
