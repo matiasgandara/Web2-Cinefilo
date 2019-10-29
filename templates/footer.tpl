@@ -1,40 +1,4 @@
 
-  <!-- Inicio del footer-->
-<div class="container-fluid bg-dark">
-    <div class="container "><!-- agregar margen positivo-->
-   
-      <div class="row">
-        <div class="col-6">
-    <footer class="bg-dark text-white mt-2 ">
-       
-         <small>Copyright © 2019 Cinéfilo</small>
-       
-     </div>
-       <div class="col-6">
-       <ul class="nav justify-content-end">
-         <li class="nav-item">
-           <a class="nav-link" href="#">Políticas del sitio</a> 
-         </li>
-         <li class="nav-item">
-           <a class="nav-link" href="#">Preguntas frecuentes</a>
-         </li>
-         <li class="nav-item">
-           <a class="nav-link" href="#">Contáctanos</a>
-         </div>
-       </div>
-       </ul>
-     </footer></div></div>
-     <!-- FIN FOOTER -->
-</body></html>
-     <!-- Inicio de social -->
-     <div class="social">
-       <a href="#" title="Ir a Facebook"> <img src="image/fb.png" alt="Logo de Facebook"></a>
-       <a href="#" title="Ir a Youtube"> <img src="image/yt.png" alt="Logo de Youtube"></a>
-       <a href="#" title="Ir a Twitter"> <img src="image/twitter.png" alt="Logo de Twitter"></a>
-     </div>
-     <!-- FIN SOCIAL-->
-
-   
     
      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

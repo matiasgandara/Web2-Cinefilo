@@ -1,5 +1,7 @@
 <?php
     require_once('Router.php');
+    require_once('./controllers/HomeController.php');
+
     require_once('./api/filmApiController.php');
     
     // CONSTANTES PARA RUTEO
@@ -9,7 +11,7 @@
 
     // rutas
     
-    
+    $router->addRoute("home", "GET", "HomeController", "getHome");
     $router->addRoute("/peliculas", "GET", "filmApiController", "getPeliculas");
     $router->addRoute("/peliculas/:ID", "GET", "filmApiController", "getPeliculasId");
     $router->addRoute("/peliculas_admin", "GET", "filmApiController", "getPeliculas");

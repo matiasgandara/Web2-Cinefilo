@@ -13,10 +13,9 @@ class HomeView {
     }
 
     public function DisplayLogin($id){
-
         $smarty = new Smarty();
         $smarty->assign('idlogin', $id);
-        $smarty->display('templates/homelogued.tpl');
+        $smarty->display('templates/homelogged.tpl');
     }
     
     public function displayNos(){

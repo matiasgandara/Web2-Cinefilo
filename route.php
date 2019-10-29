@@ -7,6 +7,7 @@ require_once('controllers/userController.php');
 require_once('Router.php');
 
 define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
+define("HOME", BASE_URL . 'home');
 define("LOGGED", BASE_URL . 'logged');
 define("LOGIN", BASE_URL . 'login');
 define("LOGOUT", BASE_URL . 'logout');
@@ -25,7 +26,7 @@ define("SERVICIOS", BASE_URL . 'servicios');
 
 $r = new Router();
 
-$r->addRoute("", "GET", "HomeController", "getHome");
+$r->addRoute("home", "GET", "HomeController", "getHome");
 $r->addRoute("logged", "GET", "HomeController", "getHome");
 $r->addRoute("LOGIN", "POST", "userController", "IniciarSesion");
 $r->addRoute("logout", "GET", "userController", "logout");
@@ -46,4 +47,4 @@ $r->addRoute("insertar_pelicula", "POST", "FilmController", "insertarPelicula");
 $r->addRoute("insertar_serie", "POST", "FilmController", "insertarSerie");
 $r->addRoute("nosotros", "GET", "HomeController", "displayNos");
 $r->addRoute("nosotros", "GET", "HomeController", "displayServicios");
-}
+

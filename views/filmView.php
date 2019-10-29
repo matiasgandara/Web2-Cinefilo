@@ -23,12 +23,14 @@ class FilmView {
 
     public function DisplaySeries($film,$categorias){
         $smarty = new Smarty();
+        $smarty->assign('lista_series',$film);
         $smarty->assign('lista_categoria',$categorias);
         $smarty->display('templates/series.tpl');
     }
    
     public function DisplaySeriesLogged($film,$categorias){
         $smarty = new Smarty();
+        $smarty->assign('lista_series',$film);
         $smarty->assign('lista_categoria',$categorias);
         $smarty->display('templates/serieslogged.tpl');
     }
