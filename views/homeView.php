@@ -18,4 +18,14 @@ class HomeView {
         $smarty->assign('idlogin', $id);
         $smarty->display('templates/homelogued.tpl');
     }
+    
+    public function displayNos(){
+        $smarty = new Smarty();
+        $smarty->display('templates/nosotros.tpl');
+    }
+
+    public function displayServicios(){
+        $smarty = new Smarty();
+        $smarty->display('templates/servicios.tpl');
+    }
 }

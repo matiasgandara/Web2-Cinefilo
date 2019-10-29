@@ -23,33 +23,40 @@ class filmModel{
     }
 
 
-    public function getPeliculas($id){
-        if ($id){
+    public function getPeliculasId($id){
             $sentencia = $this->db->prepare("SELECT * from film AS f JOIN categorias AS c ON c.genero = f.genero WHERE c.id = ? AND f.tipo = 'peliculas' ORDER BY nombre ASC");
             $sentencia->execute(array($id));
-        }else{
+            $peliculas = $sentencia->fetchAll(PDO::FETCH_OBJ);
+    }
+
+    public function getPeliculas(){
             $sentencia = $this->db->prepare("SELECT * from film WHERE tipo = 'peliculas' ORDER BY nombre ASC");
             $sentencia->execute();
-        }
-
-        $peliculas = $sentencia->fetchAll(PDO::FETCH_OBJ);
+            $peliculas = $sentencia->fetchAll(PDO::FETCH_OBJ);
     }
 
-    public function getSeries($id){
-        if ($id){
+    public function getSeriesId($id){
             $sentencia = $this->db->prepare("SELECT * from film AS f JOIN categorias AS c ON c.genero = f.genero WHERE c.id = ? AND f.tipo = 'series' ORDER BY nombre ASC");
             $sentencia->execute(array($id));
-        }else{
-            $sentencia = $this->db->prepare("SELECT * from film WHERE tipo = 'series' ORDER BY nombre ASC");
-            $sentencia->execute();
-        }
-        $peliculas = $sentencia->fetchAll(PDO::FETCH_OBJ);
+            $peliculas = $sentencia->fetchAll(PDO::FETCH_OBJ);
     }
 
-    public function insertarFilm($genero,$nombre,$sinopsis,$episodios,$temporadas,$duracion,$tipo,$nombre_imagen){
+    public function getSeries(){
+            $sentencia = $this->db->prepare("SELECT * from film WHERE tipo = 'series' ORDER BY nombre ASC");
+            $sentencia->execute();
+            $peliculas = $sentencia->fetchAll(PDO::FETCH_OBJ);
+    }
 
-        $sentencia = $this->db->prepare("INSERT INTO film (genero, nombre, sinopsis, episodios, temporadas, duracion, tipo, nombre_imagen) VALUES(?,?,?,?,?,?,?,?)");
-        $sentencia->execute(array($genero,$nombre,$sinopsis,$episodios,$temporadas,$duracion,$tipo,$nombre_imagen));
+    public function insertarPelicula($genero,$nombre,$sinopsis,$duracion,$nombre_imagen){
+
+        $sentencia = $this->db->prepare("INSERT INTO film (genero, nombre, sinopsis, duracion, tipo, nombre_imagen) VALUES(?,?,?,?,'peliculas',?)");
+        $sentencia->execute(array($genero,$nombre,$sinopsis,$duracion,$nombre_imagen));
+    }
+
+    public function insertarSerie($genero,$nombre,$sinopsis,$episodios,$temporadas,$nombre_imagen){
+
+        $sentencia = $this->db->prepare("INSERT INTO film (genero, nombre, sinopsis, episodios, temporadas, tipo, nombre_imagen) VALUES(?,?,?,?,?,'series',?)");
+        $sentencia->execute(array($genero,$nombre,$sinopsis,$episodios,$temporadas,$nombre_imagen));
     }
 
     public function borrarFilm($id){
@@ -57,10 +64,17 @@ class filmModel{
         $sentencia->execute(array($id));
     }
 
-    public function editarFilm($id,$genero,$nombre,$sinopsis,$episodios,$temporadas,$duracion,$tipo,$nombre_imagen){
+    public function editarPelicula($id,$genero,$nombre,$sinopsis,$duracion,$nombre_imagen){
 
-        $sentencia = $this->db->prepare("UPDATE film SET genero = ?, nombre = ?, sinopsis = ?, episodios = ?, temporadas = ?, duracion = ?, tipo = ?, nombre_imagen = ? WHERE id = ?");
-        $sentencia->execute(array($genero,$nombre,$sinopsis,$episodios,$temporadas,$duracion,$tipo,$nombre_imagen,$id));
+        $sentencia = $this->db->prepare("UPDATE film SET genero = ?, nombre = ?, sinopsis = ?, duracion = ?, nombre_imagen = ? WHERE id = ?");
+        $sentencia->execute(array($genero,$nombre,$sinopsis,$duracion,$nombre_imagen,$id));
+
+    }
+
+    public function editarSerie($id,$genero,$nombre,$sinopsis,$episodios,$temporadas,$nombre_imagen){
+
+        $sentencia = $this->db->prepare("UPDATE film SET genero = ?, nombre = ?, sinopsis = ?, episodios = ?, temporadas = ?, nombre_imagen = ? WHERE id = ?");
+        $sentencia->execute(array($genero,$nombre,$sinopsis,$episodios,$temporadas,$nombre_imagen,$id));
 
     }
     

@@ -16,13 +16,6 @@ class categoriasModel{
         return $categoria;
     }
 
-    public function getCategoria($id){
-            $sentencia = $this->db->prepare("SELECT FROM categorias WHERE id = ?");
-            $sentencia->execute(array($id));
-            $categoria = $sentencia->fetch(PDO::FETCH_OBJ);
-            return $categoria;
-    }
-
     public function insertarCategoria($genero){
 
         $sentencia = $this->db->prepare("INSERT INTO categorias (genero) VALUES(?)");
