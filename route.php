@@ -21,6 +21,8 @@ define("EDITAR_PELICULA", BASE_URL . 'editar_pelicula');
 define("EDITAR_SERIE", BASE_URL . 'editar_serie');
 define("INSERTAR_PELICULA", BASE_URL . 'insertar_pelicula');
 define("INSERTAR_SERIE", BASE_URL . 'insertar_serie');
+define("BORRAR_PELICULA", BASE_URL . 'borrar_pelicula');
+define("BORRAR_SERIE", BASE_URL . 'borrar_serie');
 define("NOSOTROS", BASE_URL . 'nosotros');
 define("SERVICIOS", BASE_URL . 'servicios');
 
@@ -28,7 +30,7 @@ $r = new Router();
 
 /* $r->addRoute("home", "", "HomeController", "getHome"); */
 $r->addRoute("logged", "GET", "HomeController", "getHome");
-$r->addRoute("LOGIN", "POST", "userController", "IniciarSesion");
+$r->addRoute("login", "POST", "userController", "IniciarSesion");
 $r->addRoute("logout", "GET", "userController", "logout");
 $r->addRoute("registro", "GET", "userController", "registrar");
 $r->addRoute("registrar", "POST", "userController", "registrarUsuario");
@@ -45,6 +47,8 @@ $r->addRoute("editar_pelicula/:ID", "POST", "FilmController", "editarPelicula");
 $r->addRoute("editar_serie/:ID", "POST", "FilmController", "editarSerie");
 $r->addRoute("insertar_pelicula", "POST", "FilmController", "insertarPelicula");
 $r->addRoute("insertar_serie", "POST", "FilmController", "insertarSerie");
+$r->addRoute("borrar_pelicula/:ID", "GET", "FilmController", "borrarPelicula");
+$r->addRoute("borrar_serie/:ID", "GET", "FilmController", "borrarSerie");
 $r->addRoute("nosotros", "GET", "HomeController", "displayNos");
 $r->addRoute("nosotros", "GET", "HomeController", "displayServicios");
 

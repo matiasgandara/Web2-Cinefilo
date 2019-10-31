@@ -12,7 +12,7 @@ class HomeView {
         $smarty->display('templates/principal.tpl');
     }
 
-    public function DisplayLogin($id){
+    public function DisplayLogged($id){
         $smarty = new Smarty();
         $smarty->assign('idlogin', $id);
         $smarty->display('templates/homelogged.tpl');
@@ -26,5 +26,17 @@ class HomeView {
     public function displayServicios(){
         $smarty = new Smarty();
         $smarty->display('templates/servicios.tpl');
+    }
+
+    public function displayNosLogged($id){
+        $smarty = new Smarty();
+        $smarty->assign('idlogin', $id);
+        $smarty->display('templates/nosotrosLogged.tpl');
+    }
+    
+    public function displayServiciosLogged($id){
+        $smarty = new Smarty();
+        $smarty->assign('idlogin', $id);
+        $smarty->display('templates/serviciosLogged.tpl');
     }
 }

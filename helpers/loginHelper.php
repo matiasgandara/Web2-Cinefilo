@@ -2,32 +2,34 @@
 
 class AuthHelper{
 
-    public function __construct() {}
+    function __construct() {}
 
 
-    public function checkLogIn(){
-        session_start();
-    
-        if(!isset($_SESSION['userId'])){
-            return false;
-            die();
-        }
-
-        if ( isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 5000)) { 
-            header("Location: " . URL_LOGOUT);
-            return false;
-            die(); 
-        } else {
-            return true;
-        }
-        $_SESSION['LAST_ACTIVITY'] = time();
-    
-    }
-
-    public function getLoggedUserName() {
-        if (session_status() != PHP_SESSION_ACTIVE)
+        public function login($user) {
+            // INICIO LA SESSION Y LOGUEO AL USUARIO
             session_start();
-        return $_SESSION['USERNAME'];
-    }
-
+            $_SESSION['ID_USER'] = $user->id;
+            $_SESSION['USERNAME'] = $user->nombre_usuario;
+        }
+    
+        public function logout() {
+            session_start();
+            session_destroy();
+        }
+    
+        public function checkLoggedIn() {
+            session_start();
+            if (!isset($_SESSION['ID_USER'])) {
+                return false;
+            }else{
+                return true;
+            }       
+        }
+    
+        public function getLoggedUserName() {
+            if (session_status() != PHP_SESSION_ACTIVE)
+                session_start();
+            return $_SESSION['USERNAME'];
+        }
 }
+  

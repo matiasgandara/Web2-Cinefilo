@@ -16,10 +16,9 @@ class homeController{
 
     public function getHome(){
 
-        if ($this->helper->checkLogIn()){
-            session_start();
+        if ($this->helper->checkLoggedIn()){
             $user = $this->helper->getLoggedUserName();
-            $this->view->DisplayLogin($user);
+            $this->view->DisplayLogged($user);
         }else{
             $this->view->DisplayHome();
         }
@@ -28,11 +27,21 @@ class homeController{
     }
 
     public function displayNos(){
-        $this->view->displayNos();
+        if ($this->helper->checkLoggedIn()){
+            $user = $this->helper->getLoggedUserName();
+            $this->view->displayNosLogged($user);
+        }else{
+            $this->view->displayNos();
+        }
     }
 
     public function displayServicios(){
-        $this->view->displayServicios();
+        if ($this->helper->checkLoggedIn()){
+            $user = $this->helper->getLoggedUserName();
+            $this->view->displayServiciosLogged($user);
+        }else{
+            $this->view->displayServicios();
+        }
     }
 
 }

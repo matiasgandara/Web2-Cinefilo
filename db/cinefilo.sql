@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 28-10-2019 a las 02:37:53
--- Versión del servidor: 10.1.39-MariaDB
--- Versión de PHP: 7.3.5
+-- Servidor: localhost
+-- Tiempo de generación: 31-10-2019 a las 19:08:59
+-- Versión del servidor: 10.4.8-MariaDB
+-- Versión de PHP: 7.3.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -89,8 +89,16 @@ INSERT INTO `film` (`id`, `genero`, `nombre`, `sinopsis`, `episodios`, `temporad
 CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL,
   `nombre_usuario` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
-  `clave` char(32) COLLATE latin1_spanish_ci NOT NULL
+  `clave` char(60) COLLATE latin1_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `nombre_usuario`, `clave`) VALUES
+(1, '', ''),
+(2, 'karlos', '$2y$10$akp.Ae22kMiBrfWybFuNiOgqVmd.A3T4/5fIUtJnmnHLdWr7PBI7a');
 
 --
 -- Índices para tablas volcadas
@@ -137,7 +145,7 @@ ALTER TABLE `film`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas

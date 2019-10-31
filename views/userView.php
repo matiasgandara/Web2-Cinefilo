@@ -13,7 +13,7 @@ class userView {
 
         $smarty = new Smarty();
         $smarty->assign('titulo',"registro");
-        $smarty->assign('BASE_URL', URL_REGISTRO);
+        /*$smarty->assign('BASE_URL', REGISTRO);*/
         $smarty->display('templates/registro.tpl');
     }
 }
