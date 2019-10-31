@@ -1,4 +1,6 @@
 <div class="bloque-contenido pt-1">
+    <select class="custom-select">
+   {include file="select_categorias.tpl"}
     <main class="pelis" role="main">
             {foreach from=lista_pelis item=peli}
               <article class="row" data={$peli->id}>                

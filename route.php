@@ -1,10 +1,10 @@
 <?php
 
 
-require_once('controllers/HomeController.php');
-require_once('controllers/FilmController.php');
-require_once('controllers/userController.php');
-require_once('Router.php');
+require_once "controllers/HomeController.php";
+require_once "controllers/FilmController.php";
+require_once "controllers/userController.php";
+require_once 'Router.php';
 
 define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
 define("HOME", BASE_URL . 'home');
@@ -26,7 +26,7 @@ define("SERVICIOS", BASE_URL . 'servicios');
 
 $r = new Router();
 
-$r->addRoute("home", "GET", "HomeController", "getHome");
+$r->addRoute("home", "", "HomeController", "getHome");
 $r->addRoute("logged", "GET", "HomeController", "getHome");
 $r->addRoute("LOGIN", "POST", "userController", "IniciarSesion");
 $r->addRoute("logout", "GET", "userController", "logout");
@@ -48,3 +48,7 @@ $r->addRoute("insertar_serie", "POST", "FilmController", "insertarSerie");
 $r->addRoute("nosotros", "GET", "HomeController", "displayNos");
 $r->addRoute("nosotros", "GET", "HomeController", "displayServicios");
 
+ //Ruta por defecto.
+ $r->setDefaultRoute("HomeController", "getHome");
+
+ $r->route($_GET['action'], $_SERVER['REQUEST_METHOD']);

@@ -1,3 +1,4 @@
+{include file="select_categorias.tpl"}
 <div class="card-group">
     {foreach from=lista_serie item=serie}
         <div class="card">
