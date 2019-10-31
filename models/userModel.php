@@ -1,8 +1,8 @@
 <?php
 
-class userModel {
+class userModel extends PDO{
 
-private $db;
+
 
     function __construct(){
         $this->db = new PDO('mysql:host=localhost;'.'dbname=cinefilo;charset=utf8', 'root', '');

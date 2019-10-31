@@ -1,22 +1,16 @@
 <?php
 
 
-class filmModel{
-    private $db;
+class filmModel extends PDO{
 
 
-    public function __constructor(){
-        $this->db = new PDO('mysql:host=localhost;'.'dbname=cinefilo;charset=utf8','root','');
+
+    function __constructor(){
+        $this->db = new PDO('mysql:host=localhost;'.'dbname=cinefilo;charset=utf8', 'root', '');
     }
 
-/*     public function getfilms(){
-        $sentencia = $this->db->prepare("SELECT * from film ORDER BY nombre ASC");
-        $sentencia->execute();
-        $films = $sentencia->fetchAll(PDO::FETCH_OBJ);
-        return $films;
-    } */
     public function get($id) {
-        $query = $this->db->prepare('SELECT * FROM film WHERE id = ?');
+        $query = $this->db->prepare("SELECT * FROM film WHERE id = ?");
         $query->execute(array($id));
 
         return $query->fetch(PDO::FETCH_OBJ);
@@ -27,24 +21,28 @@ class filmModel{
             $sentencia = $this->db->prepare("SELECT * from film AS f JOIN categorias AS c ON c.genero = f.genero WHERE c.id = ? AND f.tipo = 'peliculas' ORDER BY nombre ASC");
             $sentencia->execute(array($id));
             $peliculas = $sentencia->fetchAll(PDO::FETCH_OBJ);
+            return $peliculas;
     }
 
     public function getPeliculas(){
             $sentencia = $this->db->prepare("SELECT * from film WHERE tipo = 'peliculas' ORDER BY nombre ASC");
             $sentencia->execute();
             $peliculas = $sentencia->fetchAll(PDO::FETCH_OBJ);
+            return $peliculas;
     }
 
     public function getSeriesId($id){
             $sentencia = $this->db->prepare("SELECT * from film AS f JOIN categorias AS c ON c.genero = f.genero WHERE c.id = ? AND f.tipo = 'series' ORDER BY nombre ASC");
             $sentencia->execute(array($id));
-            $peliculas = $sentencia->fetchAll(PDO::FETCH_OBJ);
+            $series = $sentencia->fetchAll(PDO::FETCH_OBJ);
+            return $series;
     }
 
     public function getSeries(){
             $sentencia = $this->db->prepare("SELECT * from film WHERE tipo = 'series' ORDER BY nombre ASC");
             $sentencia->execute();
-            $peliculas = $sentencia->fetchAll(PDO::FETCH_OBJ);
+            $series = $sentencia->fetchAll(PDO::FETCH_OBJ);
+            return $series;
     }
 
     public function insertarPelicula($genero,$nombre,$sinopsis,$duracion,$nombre_imagen){
@@ -79,3 +77,4 @@ class filmModel{
     }
     
 }
+?>

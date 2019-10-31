@@ -1,11 +1,10 @@
 <?php
 
 
-class categoriasModel{
-    private $db;
+class categoriasModel extends PDO{
 
 
-    public function __constructor(){
+    function __construct(){
         $this->db = new PDO('mysql:host=localhost;'.'dbname=cinefilo;charset=utf8','root','');
     }
 

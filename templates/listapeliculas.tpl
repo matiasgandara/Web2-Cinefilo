@@ -1,9 +1,8 @@
 <div class="bloque-contenido pt-1">
-    <select class="custom-select">
    {include file="select_categorias.tpl"}
     <main class="pelis" role="main">
-            {foreach from=lista_pelis item=peli}
-              <article class="row" data={$peli->id}>                
+            {foreach $lista_peliculas as $peli}
+              <article class="row">                
                   <div class="card mb-1" style="max-width: 650px;">
                     <div class="row no-gutters">
                       <div class="col-md-3">

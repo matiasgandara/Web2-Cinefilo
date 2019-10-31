@@ -26,7 +26,7 @@ define("SERVICIOS", BASE_URL . 'servicios');
 
 $r = new Router();
 
-$r->addRoute("home", "", "HomeController", "getHome");
+/* $r->addRoute("home", "", "HomeController", "getHome"); */
 $r->addRoute("logged", "GET", "HomeController", "getHome");
 $r->addRoute("LOGIN", "POST", "userController", "IniciarSesion");
 $r->addRoute("logout", "GET", "userController", "logout");

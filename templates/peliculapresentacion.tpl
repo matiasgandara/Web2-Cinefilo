@@ -47,7 +47,7 @@
                     <li data-target="#carouselExampleCaptions" data-slide-to="4"></li>
                   </ol>
                   <div class="carousel-inner">
-                    {foreach from=lista_peliculas item=pelicula}          
+                    {foreach $lista_peliculas as $pelicula}          
                       <div class="carousel-item">
                         <img src={$pelicula->nombre_imagen} class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
