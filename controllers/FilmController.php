@@ -21,7 +21,8 @@ class filmController{
         $film = $this->model->getPeliculas();
         $categorias = $this->modelcat->getCategorias();
         if($this->helper->checkLoggedIn()){
-            $this->view->DisplayPeliculasLogged($film,$categorias);
+            $user = $this->helper->getLoggedUserName();
+            $this->view->DisplayPeliculasLogged($film,$categorias,$user);
         }else{
             $this->view->DisplayPeliculas($film,$categorias);
         }
@@ -32,7 +33,8 @@ class filmController{
         $film = $this->model->getPeliculasId($id);
         $categorias = $this->modelcat->getCategorias();
         if($this->helper->checkLoggedIn()){
-            $this->view->DisplayPeliculasLogged($film,$categorias);
+            $user = $this->helper->getLoggedUserName();
+            $this->view->DisplayPeliculasLogged($film,$categorias,$user);
         }else{
             $this->view->DisplayPeliculas($film,$categorias);
         }
@@ -42,7 +44,8 @@ class filmController{
         $film = $this->model->getSeries();
         $categorias = $this->modelcat->getCategorias();
         if($this->helper->checkLoggedIn()){
-            $this->view->DisplaySeriesLogged($film,$categorias);
+            $user = $this->helper->getLoggedUserName();
+            $this->view->DisplaySeriesLogged($film,$categorias,$user);
         }else{
             $this->view->DisplaySeries($film,$categorias);
         }
@@ -53,7 +56,8 @@ class filmController{
         $film = $this->model->getSeriesId($id);
         $categorias = $this->modelcat->getCategorias();
         if($this->helper->checkLoggedIn()){
-            $this->view->DisplaySeriesLogged($film,$categorias);
+            $user = $this->helper->getLoggedUserName();
+            $this->view->DisplaySeriesLogged($film,$categorias,$user);
         }else{
             $this->view->DisplaySeries($film,$categorias);
         }
@@ -99,14 +103,14 @@ class filmController{
         }
     }
 
-    public function ingresarPelicula(){
-        $this->helper->checkLogIn();
+    public function insertarPelicula(){
+        $this->helper->checkLoggedIn();
         $this->model->insertarPelicula($_POST['genero'],$_POST['nombre'],$_POST['sinopsis'],$_POST['duracion'],$_POST['nombre_imagen']);
         header("Location: " . PELICULAS_ADMIN); 
     }    
 
-    public function ingresarSerie(){
-        $this->helper->checkLogIn();
+    public function insertarSerie(){
+        $this->helper->checkLoggedIn();
         $this->model->insertarSerie($_POST['genero'],$_POST['nombre'],$_POST['sinopsis'],$_POST['episodios'],$_POST['temporadas'],$_POST['nombre_imagen']);
         header("Location: " . SERIES_ADMIN); 
     }  

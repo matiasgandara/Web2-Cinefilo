@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-10-31 21:08:26
+/* Smarty version 3.1.33, created on 2019-10-31 23:15:51
   from 'C:\xampp\htdocs\proyectos\Web2-Cinefilo\templates\select_categorias.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5dbb3f3addc693_32489318',
+  'unifunc' => 'content_5dbb5d1740bfd3_51033434',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5dbb3f3addc693_32489318 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5dbb5d1740bfd3_51033434 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="btn-group" role="group">
     <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       Categorias

@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-10-31 20:20:28
+/* Smarty version 3.1.33, created on 2019-10-31 23:36:52
   from 'C:\xampp\htdocs\proyectos\Web2-Cinefilo\templates\listaseries.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5dbb33fc8e4d23_84544699',
+  'unifunc' => 'content_5dbb62047c3f14_66045559',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:select_categorias.tpl' => 1,
   ),
 ),false)) {
-function content_5dbb33fc8e4d23_84544699 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5dbb62047c3f14_66045559 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:select_categorias.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <div class="card-group">

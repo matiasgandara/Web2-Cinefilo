@@ -32,11 +32,11 @@
         <div class="row">
 
           <div class="col-md-7">
-            <h1 class="display-4 lead">Últimas noticias</h1>
+            <h1 class="display-1 lead">Peliculas</h1>
             <hr>
 
             <!-- Inicio carrusel -->
-            <div class="row justify-content-center">
+            {* <div class="row justify-content-center">
               <div class="bd-example">
                 <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
                   <ol class="carousel-indicators">
@@ -66,6 +66,6 @@
                   </div>
                 </div>
               </div>
-            </div>        
+            </div>         *}
               <!-- FIN CARRUSEL -->
     
