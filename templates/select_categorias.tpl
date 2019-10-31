@@ -1,11 +1,3 @@
-{* <select class="custom-select">
-
-<option selected>Todas las categorias</option>
-    {foreach $lista_categoria as $tipo}     
-      <option><a href="/peliculas/{$tipo->id}">{$tipo->genero}</a></option>
-    {/foreach}
-</select> *}
-
 <div class="btn-group" role="group">
     <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       Categorias

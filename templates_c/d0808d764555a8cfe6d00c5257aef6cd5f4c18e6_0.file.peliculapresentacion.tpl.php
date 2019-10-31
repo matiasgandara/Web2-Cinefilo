@@ -1,4 +1,27 @@
-      <!-- Inicio presentación -->
+<?php
+/* Smarty version 3.1.33, created on 2019-10-31 20:53:00
+  from 'C:\xampp\htdocs\proyectos\Web2-Cinefilo\templates\peliculapresentacion.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.33',
+  'unifunc' => 'content_5dbb3b9cae77e1_43403048',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'd0808d764555a8cfe6d00c5257aef6cd5f4c18e6' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\proyectos\\Web2-Cinefilo\\templates\\peliculapresentacion.tpl',
+      1 => 1572551569,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5dbb3b9cae77e1_43403048 (Smarty_Internal_Template $_smarty_tpl) {
+?>      <!-- Inicio presentación -->
 
   <div class="container-fluid bg-primary py-1">
     <div class="row text-center presentacion">
@@ -47,14 +70,23 @@
                     <li data-target="#carouselExampleCaptions" data-slide-to="4"></li>
                   </ol>
                   <div class="carousel-inner">
-                    {foreach $lista_peliculas as $pelicula}          
+                    <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['lista_peliculas']->value, 'pelicula');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['pelicula']->value) {
+?>          
                       <div class="carousel-item">
-                        <img src={$pelicula->nombre_imagen} class="d-block w-100" alt="...">
+                        <img src=<?php echo $_smarty_tpl->tpl_vars['pelicula']->value->nombre_imagen;?>
+ class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                          <h5>{$pelicula->nombre}</h5>
+                          <h5><?php echo $_smarty_tpl->tpl_vars['pelicula']->value->nombre;?>
+</h5>
                         </div>
                       </div>
-                    {/foreach}
+                    <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                     <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
                       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                       <span class="sr-only">Previous</span>
@@ -68,4 +100,5 @@
               </div>
             </div>        
               <!-- FIN CARRUSEL -->
-    
+    <?php }
+}
