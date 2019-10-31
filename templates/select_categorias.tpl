@@ -1,6 +1,18 @@
-<select class="custom-select">
+{* <select class="custom-select">
+
 <option selected>Todas las categorias</option>
     {foreach $lista_categoria as $tipo}     
-      <option value={$tipo->genero}>{$tipo->genero}</option>
+      <option><a href="/peliculas/{$tipo->id}">{$tipo->genero}</a></option>
     {/foreach}
-</select>
+</select> *}
+
+<div class="btn-group" role="group">
+    <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Categorias
+    </button>
+    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+      {foreach $lista_categoria as $categoria}
+        <a class="dropdown-item" href="peliculas/{$categoria->id}">{$categoria->genero}</a>
+      {/foreach}
+    </div>
+  </div>

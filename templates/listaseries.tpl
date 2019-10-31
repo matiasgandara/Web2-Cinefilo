@@ -1,6 +1,6 @@
 {include file="select_categorias.tpl"}
 <div class="card-group">
-    {foreach from=lista_serie item=serie}
+    {foreach $lista_series as $serie}
         <div class="card">
             <img class="card-img-top" src={$serie->nombre_imagen} alt="Card image cap">
             <div class="card-body">
