@@ -39,6 +39,7 @@
             <button type="button" class="btn bg-success text-white oculto" name="btnGuardar">Guardar modificación</button>
         </div>
     </form>
-</div> 
+  </div> 
+</div>  
 {include file="logged.tpl"}
 {include file="footer.tpl"}
