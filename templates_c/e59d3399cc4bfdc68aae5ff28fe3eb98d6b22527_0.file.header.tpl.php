@@ -1,4 +1,27 @@
-<!doctype html>
+<?php
+/* Smarty version 3.1.33, created on 2019-10-31 21:59:09
+  from '/opt/lampp/htdocs/proyectos/TPE/Web2-Cinefilo/templates/header.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.33',
+  'unifunc' => 'content_5dbb4b1d6e2a95_41847408',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'e59d3399cc4bfdc68aae5ff28fe3eb98d6b22527' => 
+    array (
+      0 => '/opt/lampp/htdocs/proyectos/TPE/Web2-Cinefilo/templates/header.tpl',
+      1 => 1572555529,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5dbb4b1d6e2a95_41847408 (Smarty_Internal_Template $_smarty_tpl) {
+?><!doctype html>
 <html lang="es">
 
 <head>
@@ -42,4 +65,5 @@
     </nav>
     
   </div>
-<!-- FIN NAV -->
+<!-- FIN NAV --><?php }
+}

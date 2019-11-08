@@ -7,8 +7,22 @@ require_once "controllers/userController.php";
 require_once 'Router.php';
 
 define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
-define("HOME", BASE_URL . 'home');
-define("LOGGED", BASE_URL . 'logged');
+define("LOGIN", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/login');
+define("LOGOUT", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/logout');
+define("PELICULAS", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/peliculas');
+define("PELICULAS_ADMIN", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/peliculas_admin');
+define("SERIES", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/series');
+define("SERIES_ADMIN", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/series_admin');
+define("EDITAR_PELICULA", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/editar_pelicula');
+define("EDITAR_SERIE", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/editar_serie');
+define("INSERTAR_PELICULA", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/insertar_pelicula');
+define("INSERTAR_SERIE", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/insertar_serie');
+define("BORRAR_PELICULA", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/borrar_pelicula');
+define("BORRAR_SERIE", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/borrar_serie');
+define("NOSOTROS", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/nosotros');
+define("SERVICIOS", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/servicios');
+
+/*define("LOGGED", BASE_URL . 'logged');
 define("LOGIN", BASE_URL . 'login');
 define("LOGOUT", BASE_URL . 'logout');
 define("REGISTRO", BASE_URL . 'registro');
@@ -24,7 +38,7 @@ define("INSERTAR_SERIE", BASE_URL . 'insertar_serie');
 define("BORRAR_PELICULA", BASE_URL . 'borrar_pelicula');
 define("BORRAR_SERIE", BASE_URL . 'borrar_serie');
 define("NOSOTROS", BASE_URL . 'nosotros');
-define("SERVICIOS", BASE_URL . 'servicios');
+define("SERVICIOS", BASE_URL . 'servicios');*/
 
 $r = new Router();
 

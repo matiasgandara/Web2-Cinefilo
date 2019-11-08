@@ -1,4 +1,27 @@
-<div class="container-fluid bg-dark">
+<?php
+/* Smarty version 3.1.33, created on 2019-10-31 21:59:09
+  from '/opt/lampp/htdocs/proyectos/TPE/Web2-Cinefilo/templates/footer.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.33',
+  'unifunc' => 'content_5dbb4b1d6e7156_45615008',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'dd785cbba21eb3a75858ee272eb4a755f7606997' => 
+    array (
+      0 => '/opt/lampp/htdocs/proyectos/TPE/Web2-Cinefilo/templates/footer.tpl',
+      1 => 1572555543,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5dbb4b1d6e7156_45615008 (Smarty_Internal_Template $_smarty_tpl) {
+?><div class="container-fluid bg-dark">
       <div class="container "><!-- agregar margen positivo-->
      
         <div class="row">
@@ -34,13 +57,20 @@
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  <?php echo '<script'; ?>
+ src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    crossorigin="anonymous"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-  <script src="/proyectos/TPE/Web2-Cinefilo/js/bootstrap.min.js"></script>
+    crossorigin="anonymous"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="/proyectos/TPE/Web2-Cinefilo/js/bootstrap.min.js"><?php echo '</script'; ?>
+>
 </body>
 
-</html>
+</html><?php }
+}

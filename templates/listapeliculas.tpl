@@ -16,7 +16,7 @@
                   <div class="card mb-1" style="max-width: 650px;">
                     <div class="row no-gutters">
                       <div class="col-md-3">
-                        <img src={$peli->nombre_imagen} class="card-img" alt="img">
+                        <img src="{$peli->nombre_imagen}" class="card-img" alt="img">
                       </div>
                       <div class="col-md-9">
                         <div class="card-body">

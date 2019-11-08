@@ -6,7 +6,7 @@
         <div class="card-group">
             {foreach from=lista_serie item=serie}
                 <div class="card">
-                    <img class="card-img-top" src={$serie->nombre_imagen} alt="Card image cap">
+                    <img class="card-img-top" src="{$serie->nombre_imagen}" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">{$serie->nombre}</h5>
                         <p class="card-text">Sinopsis: {$serie->sinopsis}</p>

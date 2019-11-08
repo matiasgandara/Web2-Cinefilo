@@ -4,7 +4,7 @@
     </button>
     <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
       {foreach $lista_categoria as $categoria}
-        <a class="dropdown-item" href="peliculas/{$categoria->id}">{$categoria->genero}</a>
+        <a class="dropdown-item" href="/proyectos/TPE/Web2-Cinefilo/peliculas/{$categoria->id}">{$categoria->genero}</a>
       {/foreach}
     </div>
   </div>

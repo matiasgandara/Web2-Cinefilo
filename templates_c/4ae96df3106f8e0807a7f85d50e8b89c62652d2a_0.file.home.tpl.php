@@ -1,4 +1,27 @@
-<!----------- PRESENTACIÓN ----------------->
+<?php
+/* Smarty version 3.1.33, created on 2019-10-31 22:10:09
+  from '/opt/lampp/htdocs/proyectos/TPE/Web2-Cinefilo/templates/home.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.33',
+  'unifunc' => 'content_5dbb4db18ebd28_53318444',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '4ae96df3106f8e0807a7f85d50e8b89c62652d2a' => 
+    array (
+      0 => '/opt/lampp/htdocs/proyectos/TPE/Web2-Cinefilo/templates/home.tpl',
+      1 => 1572556205,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5dbb4db18ebd28_53318444 (Smarty_Internal_Template $_smarty_tpl) {
+?><!----------- PRESENTACIÓN ----------------->
     <div class="container-fluid bg-primary py-1" >
     <div class="row text-center presentacion">
       <div class="col-12 ld-4 py-1">
@@ -124,3 +147,5 @@
   </div>
 
 
+<?php }
+}
