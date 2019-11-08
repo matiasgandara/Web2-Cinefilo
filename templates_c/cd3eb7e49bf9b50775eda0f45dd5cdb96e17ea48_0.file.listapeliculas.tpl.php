@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-11-01 00:12:43
+/* Smarty version 3.1.33, created on 2019-11-08 20:33:21
   from 'C:\xampp\htdocs\proyectos\Web2-Cinefilo\templates\listapeliculas.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5dbb6a6bc899c8_75063203',
+  'unifunc' => 'content_5dc5c301ab45f6_79988619',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'cd3eb7e49bf9b50775eda0f45dd5cdb96e17ea48' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\Web2-Cinefilo\\templates\\listapeliculas.tpl',
-      1 => 1572563546,
+      1 => 1573241291,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5dbb6a6bc899c8_75063203 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5dc5c301ab45f6_79988619 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="bloque-contenido pt-1">
       <div class="btn-group" role="group">
       <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -12,6 +12,7 @@ class FilmView {
         $smarty = new Smarty();
         $smarty->assign('lista_peliculas',$film);
         $smarty->assign('lista_categoria',$categorias);
+        $smarty->assign('BASE_URL',BASE_URL);
         $smarty->display('templates/peliculas.tpl');
     }
 
@@ -27,6 +28,7 @@ class FilmView {
         $smarty = new Smarty();
         $smarty->assign('lista_series',$film);
         $smarty->assign('lista_categoria',$categorias);
+        $smarty->assign('BASE_URL',BASE_URL);
         $smarty->display('templates/series.tpl');
     }
    
