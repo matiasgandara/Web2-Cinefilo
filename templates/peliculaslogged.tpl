@@ -1,9 +1,8 @@
-{include file="headerlogged.tpl"}
-{include file="pelicula.tpl"}
-{include file="listapeliculas.tpl"}
+{include file="header.tpl"}
+{include file="peliculapresentacion.tpl"}
 <div class="bloque-contenido pt-1">
     <main class="pelis" role="main">
-            {foreach from=lista_pelis item=peli}
+            {foreach $lista_peliculas as $peli}
               <article class="row" data={$peli->id}>                
                   <div class="card mb-1" style="max-width: 650px;">
                     <div class="row no-gutters">
@@ -16,8 +15,8 @@
                           <h6 class="card-subtitle mb-2 text-muted">Genero: {$peli->genero}</h6>
                           <h6 class="card-subtitle mb-2 text-muted">Duracion: {$peli->duracion}</h6>
                           <p class="card-text">Sinopsis: {$peli->sinopsis}</p>
-                          <a href="eliminar/{$peli->id}" class="btn btn-primary">ELIMININAR</a>
-                          <a href="editar/{$peli->id}" class="btn btn-primary">MODIFICAR</a>
+                          <a method="GET" href="borrar_pelicula/{$peli->id}" class="btn btn-primary">ELIMININAR</a>
+                          <a method="POST" href="editar_pelicula/{$peli->id}" class="btn btn-primary">MODIFICAR</a>
                           </div>
                       </div>
                     </div>
@@ -25,7 +24,7 @@
               </article>
             {/foreach}
     </main>
-    <form action="POST">
+    <form action="insertar_pelicula" method="POST">
         <div class="rounded border border-success my-1 mx-1">
           <input type="text" class="form-control " placeholder="NOMBRE PELICULA" aria-label="NOMBRE PELICULA" aria-describedby="basic-addon1" name="nombre">
           <input type="text" class="form-control " placeholder="SINOPSIS" aria-label="SINOPSIS" aria-describedby="basic-addon1" name="sinopsis">
@@ -36,9 +35,11 @@
             <input type="text" class="form-control mr-1" placeholder="DIR IMAGEN" aria-label="DIR IMAGEN" aria-describedby="basic-addon1" name="nombre_imagen">
         </div>
         <div class="btn-group py-2 px-1 container"  role="group" aria-label="Basic example "  class="justify-content-center">
-            <button type="button" class="btn bg-success text-white" name="btnIngresar">Ingresar</button>
+            <button type="submit" value="insertar_pelicula" class="btn bg-success text-white" name="btnIngresar">Ingresar</button>
             <button type="button" class="btn bg-success text-white oculto" name="btnGuardar">Guardar modificación</button>
         </div>
     </form>
-</div> 
+  </div> 
+</div>  
+{include file="logged.tpl"}
 {include file="footer.tpl"}

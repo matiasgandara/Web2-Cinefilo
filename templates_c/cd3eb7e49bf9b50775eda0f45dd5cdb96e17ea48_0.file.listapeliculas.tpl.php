@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-10-31 21:08:23
+/* Smarty version 3.1.33, created on 2019-11-01 00:12:43
   from 'C:\xampp\htdocs\proyectos\Web2-Cinefilo\templates\listapeliculas.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5dbb3f371d6760_54715606',
+  'unifunc' => 'content_5dbb6a6bc899c8_75063203',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'cd3eb7e49bf9b50775eda0f45dd5cdb96e17ea48' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\Web2-Cinefilo\\templates\\listapeliculas.tpl',
-      1 => 1572552497,
+      1 => 1572563546,
       2 => 'file',
     ),
   ),
@@ -20,27 +20,27 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5dbb3f371d6760_54715606 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5dbb6a6bc899c8_75063203 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="bloque-contenido pt-1">
       <div class="btn-group" role="group">
-    <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Categorias
-    </button>
-    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-      <?php
+      <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Categorias
+      </button>
+      <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+        <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['lista_categoria']->value, 'categoria');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['categoria']->value) {
 ?>
-        <a class="dropdown-item" href="./peliculas/<?php echo $_smarty_tpl->tpl_vars['categoria']->value->id;?>
+          <a class="dropdown-item" href="./peliculas/<?php echo $_smarty_tpl->tpl_vars['categoria']->value->id;?>
 "><?php echo $_smarty_tpl->tpl_vars['categoria']->value->genero;?>
 </a>
-      <?php
+        <?php
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+      </div>
     </div>
-  </div>
     <main class="pelis" role="main">
             <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['lista_peliculas']->value, 'peli');
@@ -74,5 +74,6 @@ foreach ($_from as $_smarty_tpl->tpl_vars['peli']->value) {
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
     </main>
+</div> 
 </div> <?php }
 }

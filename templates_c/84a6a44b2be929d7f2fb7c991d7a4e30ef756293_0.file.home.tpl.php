@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-10-31 20:20:17
+/* Smarty version 3.1.33, created on 2019-10-31 23:05:22
   from 'C:\xampp\htdocs\proyectos\Web2-Cinefilo\templates\home.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5dbb33f18ae6b8_59414157',
+  'unifunc' => 'content_5dbb5aa2d0c393_23496778',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5dbb33f18ae6b8_59414157 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5dbb5aa2d0c393_23496778 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!----------- PRESENTACIÓN ----------------->
     <div class="container-fluid bg-primary py-1" >
     <div class="row text-center presentacion">
