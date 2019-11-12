@@ -21,7 +21,7 @@ class AuthHelper{
         public function checkAdmin(){
             session_start();
             if($this->checkLoggedIn()){
-                return ($_SESSION['ADMINISTRADOR'];
+                return ($_SESSION['ADMINISTRADOR']);
             }else{
                 return false;
             }           

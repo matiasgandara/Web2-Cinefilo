@@ -11,13 +11,12 @@
                       </div>
                       <div class="col-md-9">
                         <div class="card-body">
-                          <h5 class="card-title">{$peli->nombre}</h5>
+                          <h5 class="card-title"> <a href="pelicula/{$peli->id}>{$peli->nombre}</a></h5>
                           <h6 class="card-subtitle mb-2 text-muted">Genero: {$peli->genero}</h6>
                           <h6 class="card-subtitle mb-2 text-muted">Duracion: {$peli->duracion}</h6>
                           <p class="card-text">Sinopsis: {$peli->sinopsis}</p>
                           <a method="GET" href="borrar_pelicula/{$peli->id}" class="btn btn-primary">ELIMININAR</a>
-                          <a method="POST" href="editar_pelicula/{$peli->id}" class="btn btn-primary">MODIFICAR</a>
-                          </div>
+                        </div>
                       </div>
                     </div>
                   </div> 
@@ -31,12 +30,18 @@
 		</div>
         <div class="btn-group my-1 mx-1 rounded border border-success"  role="group " >
             <input type="time" class="form-control mr-1" placeholder="DURACION" aria-label="DURACION" aria-describedby="basic-addon1" name="duracion">
-            <input type="text" class="form-control mr-1" placeholder="GENERO" aria-label="GENERO" aria-describedby="basic-addon1" name="genero">
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Categoria</label>
+                  <select class="form-control" name="genero">
+                      {foreach $lista_categoria as $categoria} 
+                          <option>{$categoria->genero}</option>
+                      {/foreach}
+                  </select>
+            </div>
             <input type="text" class="form-control mr-1" placeholder="DIR IMAGEN" aria-label="DIR IMAGEN" aria-describedby="basic-addon1" name="nombre_imagen">
         </div>
         <div class="btn-group py-2 px-1 container"  role="group" aria-label="Basic example "  class="justify-content-center">
             <button type="submit" value="insertar_pelicula" class="btn bg-success text-white" name="btnIngresar">Ingresar</button>
-            <button type="button" class="btn bg-success text-white oculto" name="btnGuardar">Guardar modificación</button>
         </div>
     </form>
   </div> 
