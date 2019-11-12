@@ -45,13 +45,6 @@ class FilmApiController {
         $this->view->response($films, 200);
     }
 
-    public function  getFilm($params = null){
-        $id = $params[':ID'];
-        $films = $this->model->getFilm($id);
-        $this->view->response($films, 200);
-    }
-
-
     public function  getSeriesId($params = null) {
 
         $id = $params[':ID'];
@@ -106,7 +99,7 @@ class FilmApiController {
         $id = $params[':ID'];
         $data = $this->getData();
         
-        $film = $this->model->get($id);
+        $film = $this->model->getFilm($id);
         if ($film) {
             $this->model->editarPelicula($data->id,$data->genero,$data->nombre,$data->sinopsis,$data->duracion);
             $this->view->response("El film fue modificada con exito.", 200);
@@ -118,7 +111,7 @@ class FilmApiController {
         $id = $params[':ID'];
         $data = $this->getData();
         
-        $film = $this->model->get($id);
+        $film = $this->model->getFilm($id);
         if ($film) {
             $this->model->editarSerie($data->id,$data->genero,$data->nombre,$data->sinopsis,$data->episodios,$data->temporadas);
             $this->view->response("El film fue modificada con exito.", 200);
