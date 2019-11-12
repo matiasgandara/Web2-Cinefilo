@@ -32,6 +32,13 @@ class FilmApiController {
         $this->view->response($films, 200);
     }
 
+    public function  getFilm($params = null){
+        $id = $params[':ID'];
+        $films = $this->model->getFilm($id);
+        $this->view->response($films, 200);
+    }
+
+
     public function  getSeriesId($params = null) {
 
         $id = $params[':ID'];
@@ -59,7 +66,7 @@ class FilmApiController {
     public function insertarPelicula($params = null) {
         $data = $this->getData();
 
-        $id = $this->model->insertarPelicula($data->genero, $data->nombre, $data->sinopsis, $data->duracion, $data->nombre_imagen);
+        $id = $this->model->insertarPelicula($data->genero, $data->nombre, $data->sinopsis, $data->duracion);
         
         $film = $this->model->get($id);
         if ($film)
@@ -72,7 +79,7 @@ class FilmApiController {
     public function insertarSerie($params = null) {
         $data = $this->getData();
 
-        $id = $this->model->insertarSerie($data->genero, $data->nombre, $data->sinopsis, $data->episodios,$data->temporadas, $data->nombre_imagen);
+        $id = $this->model->insertarSerie($data->genero, $data->nombre, $data->sinopsis, $data->episodios,$data->temporadas);
         
         $film = $this->model->get($id);
         if ($film)
@@ -88,7 +95,7 @@ class FilmApiController {
         
         $film = $this->model->get($id);
         if ($film) {
-            $this->model->editarPelicula($data->id,$data->genero,$data->nombre,$data->sinopsis,$data->duracion,$data->nombreimagen);
+            $this->model->editarPelicula($data->id,$data->genero,$data->nombre,$data->sinopsis,$data->duracion);
             $this->view->response("El film fue modificada con exito.", 200);
         } else
             $this->view->response("El film con el id={$id} no existe", 404);
@@ -100,7 +107,7 @@ class FilmApiController {
         
         $film = $this->model->get($id);
         if ($film) {
-            $this->model->editarSerie($data->id,$data->genero,$data->nombre,$data->sinopsis,$data->episodios,$data->temporadas,$data->nombreimagen);
+            $this->model->editarSerie($data->id,$data->genero,$data->nombre,$data->sinopsis,$data->episodios,$data->temporadas);
             $this->view->response("El film fue modificada con exito.", 200);
         } else
             $this->view->response("El film con el id={$id} no existe", 404);

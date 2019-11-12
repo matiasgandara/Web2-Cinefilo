@@ -1,6 +1,6 @@
 <?php
     require_once("Router.php");
-    require_once("./controllers/homeController.php");
+/*     require_once("controllers/homeController.php"); */
 
     require_once("./api/filmApiController.php");
     

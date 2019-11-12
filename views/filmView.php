@@ -8,9 +8,10 @@ class FilmView {
         
     }
 
-    public function DisplayPeliculas($film,$categorias){
+    public function DisplayPeliculas($film,$categorias,$imagenes){
         $smarty = new Smarty();
         $smarty->assign('lista_peliculas',$film);
+        $smarty->assign('imagenes', $imagenes);
         $smarty->assign('lista_categoria',$categorias);
         $smarty->display('templates/peliculas.tpl');
     }
@@ -36,6 +37,13 @@ class FilmView {
         $smarty->assign('lista_series',$film);
         $smarty->assign('lista_categoria',$categorias);
         $smarty->display('templates/serieslogged.tpl');
+    }
+
+    public function DisplayFilm($film, $user){
+        $smarty = new Smarty();
+        $smarty->assign('idlogin', $user);
+        $smarty->assign('film',$film);
+        $smarty->display('templates/film.tpl');
     }
     
 

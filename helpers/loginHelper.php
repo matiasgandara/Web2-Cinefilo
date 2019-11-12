@@ -10,11 +10,17 @@ class AuthHelper{
             session_start();
             $_SESSION['ID_USER'] = $user->id;
             $_SESSION['USERNAME'] = $user->nombre_usuario;
+            $_SESSION['ADMINISTRADOR'] = $user->administrador;
         }
     
         public function logout() {
             session_start();
             session_destroy();
+        }
+
+        public function checkAdmin(){
+            session_start();
+            return ($_SESSION['ADMINISTRADOR'];           
         }
     
         public function checkLoggedIn() {

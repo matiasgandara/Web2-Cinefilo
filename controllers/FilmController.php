@@ -20,12 +20,22 @@ class filmController{
     public function getPeliculas(){
         $film = $this->model->getPeliculas();
         $categorias = $this->modelcat->getCategorias();
-        if($this->helper->checkLoggedIn()){
+        if($this->helper->checkLoggedIn() && $this->helper->checkAdmin()){
             $user = $this->helper->getLoggedUserName();
-            $this->view->DisplayPeliculasLogged($film,$categorias,$user);
+            $this->view->DisplayPeliculasAdmin($film,$categorias,$user);
+        }elseif ($this->helper->checkLoggedIn()) {
+            $user = $this->helper->getLoggedUserName();
+            $this->view->DisplayPeliculasLogged($film,$categorias,$user);        
         }else{
             $this->view->DisplayPeliculas($film,$categorias);
         }
+    }
+
+    public function getFilm($params = null){
+        $id = $params[':ID'];
+        $film = $this->model->getFilm($id);
+        $imagen = $this->model->getImagenes($id);
+        $this->view->DisplayFilm($film, $imagen);
     }
 
     public function getPeliculasId($params = null){
