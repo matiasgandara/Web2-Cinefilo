@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-10-31 23:05:22
+/* Smarty version 3.1.33, created on 2019-11-08 20:33:11
   from 'C:\xampp\htdocs\proyectos\Web2-Cinefilo\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5dbb5aa27f88b0_24167210',
+  'unifunc' => 'content_5dc5c2f7b06f84_15943835',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '247b2d46516b2789f4955af94482d122b79a64da' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\Web2-Cinefilo\\templates\\header.tpl',
-      1 => 1572542714,
+      1 => 1573241137,
       2 => 'file',
     ),
   ),
@@ -20,12 +20,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5dbb5aa27f88b0_24167210 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5dc5c2f7b06f84_15943835 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <html lang="es">
 
 <head>
   <!-- Required meta tags -->
+  <base href="<?php echo BASE_URL;?>
+">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-10-31 23:05:22
+/* Smarty version 3.1.33, created on 2019-11-08 20:33:11
   from 'C:\xampp\htdocs\proyectos\Web2-Cinefilo\templates\footer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5dbb5aa292bce8_86278750',
+  'unifunc' => 'content_5dc5c2f7b58611_07054544',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1197a6a7414e745142aa79eed314ae70f3dd8f21' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\Web2-Cinefilo\\templates\\footer.tpl',
-      1 => 1572543892,
+      1 => 1573241208,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5dbb5aa292bce8_86278750 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5dc5c2f7b58611_07054544 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="container-fluid bg-dark">
       <div class="container "><!-- agregar margen positivo-->
      
