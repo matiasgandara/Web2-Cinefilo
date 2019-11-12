@@ -62,7 +62,7 @@ class FilmView {
         $smarty->assign('imagenes', $imagenes);
         $smarty->assign('comentarios', $comentarios);
         $smarty->assign('idlogin', $user);
-        $smarty->display('templates/pelicula.tpl')
+        $smarty->display('templates/pelicula.tpl');
     }
 
     public function DisplaySerie($film, $imagenes, $comentarios, $user){
@@ -71,7 +71,7 @@ class FilmView {
         $smarty->assign('imagenes', $imagenes);
         $smarty->assign('comentarios', $comentarios);
         $smarty->assign('idlogin', $user);
-        $smarty->display('templates/serie.tpl')
+        $smarty->display('templates/serie.tpl');
     }
     public function DisplayPeliculaAdmin($film, $imagenes, $comentarios, $user){
         $smarty = new Smarty();
@@ -79,7 +79,7 @@ class FilmView {
         $smarty->assign('imagenes', $imagenes);
         $smarty->assign('comentarios', $comentarios);
         $smarty->assign('idlogin', $user);
-        $smarty->display('templates/peliculaadmin.tpl')
+        $smarty->display('templates/peliculaadmin.tpl');
     }
 
     public function DisplaySerieAdmin($film, $imagenes, $comentarios, $user){
@@ -88,7 +88,7 @@ class FilmView {
         $smarty->assign('imagenes', $imagenes);
         $smarty->assign('comentarios', $comentarios);
         $smarty->assign('idlogin', $user);
-        $smarty->display('templates/serieadmin.tpl')
+        $smarty->display('templates/serieadmin.tpl');
     }
     
 

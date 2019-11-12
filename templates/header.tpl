@@ -7,11 +7,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <link rel="stylesheet" href="/proyectos/TPE/Web2-Cinefilo/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/proyectos/TPE/Web2-Cinefilo/css/estilo.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/estilo.css">
   
   <title>TP Tercera Entrega</title>
-  <link rel="shortcut icon" href="/proyectos/TPE/Web2-Cinefilo/image/glasses.ico"/> 
+  <link rel="shortcut icon" href="image/glasses.ico"/> 
 </head>
 
 <body>

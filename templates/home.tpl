@@ -11,14 +11,14 @@
 
         <div class="col md-3">
           <div class="text-center">
-                  <a class="btn btn-success btn-lg" href="/proyectos/TPE/Web2-Cinefilo/peliculas" role="button">Peliculas</a>
+                  <a class="btn btn-success btn-lg" href="peliculas" role="button">Peliculas</a>
           </div>
         </div>
         <div class="col md-3 "> </div>
         <div class="col md-3 "> </div>
         <div class="col md-3 ">
           <div class="text-center">
-            <a class="btn btn-success btn-lg" href="/proyectos/TPE/Web2-Cinefilo/series" role="button">Series</a>
+            <a class="btn btn-success btn-lg" href="series" role="button">Series</a>
           </div>
         </div>
 

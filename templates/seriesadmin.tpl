@@ -25,14 +25,13 @@
                 <div class="btn-group my-1 mx-1 rounded border border-success"  role="group " >
                     <input type="number" class="form-control mr-1" placeholder="TEMPORADAS" aria-label="TEMPORADAS" aria-describedby="basic-addon1" name="temporadas">
                     <input type="number" class="form-control mr-1" placeholder="EPISODIOS" aria-label="EPISODIOS" aria-describedby="basic-addon1" name="episodios">
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect1">Categoria</label>
                         <select class="form-control" name="genero">
+                            <option disabled selected value="" hidden>GENERO</option>
                             {foreach $lista_categoria as $categoria} 
                                 <option>{$categoria->genero}</option>
                             {/foreach}
-                        </select>
-                    </div>
+                        </select> 
+                    
                     <input type="text" class="form-control mr-1" placeholder="DIR IMAGEN" aria-label="DIR IMAGEN" aria-describedby="basic-addon1" name="nombre_imagen">
                 </div>
                 <div class="btn-group py-2 px-1 container"  role="group" aria-label="Basic example "  class="justify-content-center">
