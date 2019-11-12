@@ -18,14 +18,13 @@
     // rutas
     /* 
     $router->addRoute("home", "GET", "HomeController", "getHome"); */
+    $router->addRoute("comentarios", "GET", "filmApiController", "getComentarios");
     $router->addRoute("peliculas", "GET", "filmApiController", "getPeliculas");
+    $router->addRoute("pelicula/:ID","GET","filmApiController", "getFilm");
     $router->addRoute("peliculas/:ID", "GET", "filmApiController", "getPeliculasId");
-    $router->addRoute("peliculas_admin", "GET", "filmApiController", "getPeliculas");
-    $router->addRoute("peliculas_admin/:ID", "GET", "filmApiController", "getPeliculasId");
     $router->addRoute("series", "GET", "filmApiController", "getSeries");
+    $router->addRoute("serie/:ID","GET","filmApiController", "getFilm");
     $router->addRoute("series/:ID", "GET", "filmApiController", "getSeriesId");
-    $router->addRoute("series_admin", "GET", "filmApiController", "getSeries");
-    $router->addRoute("series_admin:/ID", "GET", "filmApiController", "getSeriesId");
     $router->addRoute("eliminar/:ID", "DELETE", "filmApiController", "BorrarFilm");
     $router->addRoute("editar_pelicula/:ID", "PUT", "filmApiController", "editarPelicula");
     $router->addRoute("editar_serie/:ID", "PUT", "filmApiController", "editarSerie");

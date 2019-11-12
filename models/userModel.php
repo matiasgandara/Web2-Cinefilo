@@ -17,8 +17,18 @@ class userModel extends PDO{
         return $pass;
     }
 
-    public function Registro($user, $pass, $administrador){
+    public function Registro($user, $pass, $administrador = null){
         $sentencia = $this->db->prepare("INSERT INTO usuarios (nombre_usuario, clave, administrador) VALUES(?,?,?)");
         $sentencia->execute(array($user, $pass, $administrador));
+    }
+
+    public function eliminarUser($id){
+        $sentencia = $this->db->prepare("DELETE FROM usuarios WHERE id = ?");
+        $sentencia->execute(array($id));
+    }
+
+    public function editarAdmin($id, $administrador){
+        $sentencia = $this->db->prepare("UPDATE usuarios SET administrador = ? WHERE id = ?");
+        $sentencia->execute(array($administrador, $id));
     }
 }

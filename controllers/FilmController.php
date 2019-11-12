@@ -20,7 +20,7 @@ class filmController{
     public function getPeliculas(){
         $film = $this->model->getPeliculas();
         $categorias = $this->modelcat->getCategorias();
-        if($this->helper->checkLoggedIn() && $this->helper->checkAdmin()){
+        if($this->helper->checkAdmin()){
             $user = $this->helper->getLoggedUserName();
             $this->view->DisplayPeliculasAdmin($film,$categorias,$user);
         }elseif ($this->helper->checkLoggedIn()) {
@@ -35,27 +35,43 @@ class filmController{
         $id = $params[':ID'];
         $film = $this->model->getFilm($id);
         $imagen = $this->model->getImagenes($id);
-        $this->view->DisplayFilm($film, $imagen);
+        $comentarios = $this->model->getComentarios($id);
+
+        if($this->helper->checkAdmin()){
+            $user = $this->helper->getLoggedUserName();
+            $this->view->DisplayFilmAdmin($film, $imagen,$comentarios, $user);
+        }elseif ($this->helper->checkLoggedIn()) {
+            $user = $this->helper->getLoggedUserName();
+            $this->view->DisplayFilm($film, $imagen,$comentarios, $user);
+        }else{
+            header("Location: " . BASE_URL);
+        }
     }
 
     public function getPeliculasId($params = null){
         $id = $params[':ID'];
         $film = $this->model->getPeliculasId($id);
         $categorias = $this->modelcat->getCategorias();
-        if($this->helper->checkLoggedIn()){
+        if($this->helper->checkAdmin()){
+            $user = $this->helper->getLoggedUserName();
+            $this->view->DisplayPeliculasAdmin($film,$categorias,$user);
+        }elseif ($this->helper->checkLoggedIn()) {
             $user = $this->helper->getLoggedUserName();
             $this->view->DisplayPeliculasLogged($film,$categorias,$user);
         }else{
-            $this->view->DisplayPeliculas($film,$categorias);
+            $this->view->DisplayPeliculas($film, $categorias);
         }
     }
 
     public function getSeries(){
         $film = $this->model->getSeries();
         $categorias = $this->modelcat->getCategorias();
-        if($this->helper->checkLoggedIn()){
+        if($this->helper->checkAdmin()){
             $user = $this->helper->getLoggedUserName();
-            $this->view->DisplaySeriesLogged($film,$categorias,$user);
+            $this->view->DisplaySeriesAdmin($film,$categorias,$user);
+        }elseif ($this->helper->checkLoggedIn()) {
+            $user = $this->helper->getLoggedUserName();
+            $this->view->DisplaySeriesLogged($film,$categorias,$user);        
         }else{
             $this->view->DisplaySeries($film,$categorias);
         }
@@ -65,19 +81,22 @@ class filmController{
         $id = $params[':ID'];
         $film = $this->model->getSeriesId($id);
         $categorias = $this->modelcat->getCategorias();
-        if($this->helper->checkLoggedIn()){
+        if($this->helper->checkAdmin()){
+            $user = $this->helper->getLoggedUserName();
+            $this->view->DisplaySeriesAdmin($film,$categorias,$user);
+        }elseif ($this->helper->checkLoggedIn()) {
             $user = $this->helper->getLoggedUserName();
             $this->view->DisplaySeriesLogged($film,$categorias,$user);
         }else{
-            $this->view->DisplaySeries($film,$categorias);
+            $this->view->DisplaySeries($film, $categorias);
         }
     }
     
     public function editarPelicula($params = null){
         $id = $params[':ID'];
-        if($this->helper->checkLoggedIn()){
-            $this->model->editarPelicula($id,$_POST['genero'],$_POST['nombre'],$_POST['sinopsis'],$_POST['duracion'],$_POST['nombre_imagen']);
-            header("Location: " . PELICULAS_ADMIN);
+        if($this->helper->checkAdmin()){
+            $this->model->editarPelicula($id,$_POST['genero'],$_POST['nombre'],$_POST['sinopsis'],$_POST['duracion']);
+            header("Location: " . PELICULAS;
         }else{
             header("Location: " . PELICULAS);
         }
@@ -85,9 +104,9 @@ class filmController{
 
     public function editarSerie($params = null){
         $id = $params[':ID'];
-        if($this->helper->checkLoggedIn()){
-            $this->model->editarSerie($id,$_POST['genero'],$_POST['nombre'],$_POST['sinopsis'],$_POST['episodios'],$_POST['temporadas'],$_POST['nombre_imagen']);
-            header("Location: " . SERIES_ADMIN);
+        if($this->helper->checkAdmin()){
+            $this->model->editarSerie($id,$_POST['genero'],$_POST['nombre'],$_POST['sinopsis'],$_POST['episodios'],$_POST['temporadas']);
+            header("Location: " . SERIES);
         }else{
             header("Location: " . SERIES);
         }
@@ -95,9 +114,9 @@ class filmController{
      
     public function borrarPelicula($params = null){
         $id = $params[':ID'];
-        if($this->helper->checkLoggedIn()){
+        if($this->helper->checkAdmin()){
             $this->model->borrarFilm($id);
-            header("Location: " . PELICULAS_ADMIN);
+            header("Location: " . PELICULAS);
         }else{
             header("Location: " . PELICULAS);
         }
@@ -105,24 +124,51 @@ class filmController{
 
     public function borrarSerie($params = null){
         $id = $params[':ID'];
-        if($this->helper->checkLoggedIn()){
+        if($this->helper->checkAdmin()){
             $this->model->borrarFilm($id);
-            header("Location: " . SERIES_ADMIN);
+            header("Location: " . SERIES;
         }else{
             header("Location: " . SERIES);
         }
     }
 
     public function insertarPelicula(){
-        $this->helper->checkLoggedIn();
-        $this->model->insertarPelicula($_POST['genero'],$_POST['nombre'],$_POST['sinopsis'],$_POST['duracion'],$_POST['nombre_imagen']);
-        header("Location: " . PELICULAS_ADMIN); 
+        if($this->helper->checkLoggedIn()){
+            if ($_FILES['imagen']['name']) {
+                if ($_FILES['imagen']['type'] == "image/jpeg" || $_FILES['imagen']['type'] == "image/jpg" || $_FILES['imagen']['type'] == "image/png") {
+                    $this->model->insertarPelicula($_POST['genero'],$_POST['nombre'],$_POST['sinopsis'],$_POST['duracion'],$_FILES['imagen']);
+                    header("Location: " . PELICULAS); 
+                }else{
+                    $this->view->showError("Formato no aceptado");
+                    die();
+                }
+            }else{
+                $this->model->insertarPelicula($_POST['genero'],$_POST['nombre'],$_POST['sinopsis'],$_POST['duracion']);
+                header("Location: " . PELICULAS); 
+            }
+        }else{
+        header("Location: " . PELICULAS); 
+        }
     }    
 
     public function insertarSerie(){
-        $this->helper->checkLoggedIn();
-        $this->model->insertarSerie($_POST['genero'],$_POST['nombre'],$_POST['sinopsis'],$_POST['episodios'],$_POST['temporadas'],$_POST['nombre_imagen']);
-        header("Location: " . SERIES_ADMIN); 
-    }  
+        if($this->helper->checkLoggedIn()){
+            if ($_FILES['imagen']['name']) {
+                if ($_FILES['imagen']['type'] == "image/jpeg" || $_FILES['imagen']['type'] == "image/jpg" || $_FILES['imagen']['type'] == "image/png") {
+                    $this->model->insertarSerie($_POST['genero'],$_POST['nombre'],$_POST['sinopsis'],$_POST['episodios'],$_POST['temporadas'],$_FILES['imagen']);
+                    header("Location: " . SERIES); 
+                }else{
+                    $this->view->showError("Formato no aceptado");
+                    die();
+                }
+            }else{
+                $this->model->insertarSerie($_POST['genero'],$_POST['nombre'],$_POST['sinopsis'],$_POST['episodios'],$_POST['temporadas']);
+                header("Location: " . SERIES); 
+            }
+        }else{
+        header("Location: " . SERIES); 
+        }
+    }
+      
 
 }

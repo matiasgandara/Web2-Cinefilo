@@ -19,6 +19,19 @@ class FilmApiController {
         return json_decode($this->data);
     }
 
+    public function  getFilm($params = null) {
+
+        $id = $params[':ID'];
+        $films = $this->model->getFilm($id);
+        $this->view->response($films, 200);
+    }
+
+    public function getComentarios($params = null){
+        $id = $params[':ID'];
+        $comentarios = $this->model->getComentarios($id);
+        $this->view->response($comentarios, 200);
+    }
+
     public function  getPeliculasId($params = null) {
 
         $id = $params[':ID'];

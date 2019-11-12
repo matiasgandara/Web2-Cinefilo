@@ -34,8 +34,8 @@ class filmModel extends PDO{
     public function getFilm($id){
             $sentencia = $this->db->prepare("SELECT * from film WHERE id = ?");
             $sentencia->execute(array($id));
-            $peliculas = $sentencia->fetchAll(PDO::FETCH_OBJ);
-            return $peliculas;
+            $film = $sentencia->fetchAll(PDO::FETCH_OBJ);
+            return $film;
     }
 
     public function getSeriesId($id){
@@ -52,16 +52,23 @@ class filmModel extends PDO{
             return $series;
     }
 
-    public function insertarPelicula($genero,$nombre,$sinopsis,$duracion){
+    public function insertarPelicula($genero,$nombre,$sinopsis,$duracion,$imagen = null){
+        $filepath = null;
+        if ($imagen)
+            $filepath = $this->uploadImage($imagen);
 
-        $sentencia = $this->db->prepare("INSERT INTO film (genero, nombre, sinopsis, duracion, tipo, nombre_imagen) VALUES(?,?,?,?,'peliculas')");
-        $sentencia->execute(array($genero,$nombre,$sinopsis,$duracion,$nombre_imagen));
+        $sentencia = $this->db->prepare("INSERT INTO film (genero, nombre, sinopsis, duracion, tipo, nombre_imagen) VALUES(?,?,?,?,'peliculas',?)");
+        $sentencia->execute(array($genero,$nombre,$sinopsis,$duracion,$imagen));
     }
 
-    public function insertarSerie($genero,$nombre,$sinopsis,$episodios,$temporadas){
+    public function insertarSerie($genero,$nombre,$sinopsis,$episodios,$temporadas,$imagen = null){
+        $filepath = null;
+        if ($imagen)
+            $filepath = $this->uploadImage($imagen);
 
-        $sentencia = $this->db->prepare("INSERT INTO film (genero, nombre, sinopsis, episodios, temporadas, tipo) VALUES(?,?,?,?,?,'series')");
-        $sentencia->execute(array($genero,$nombre,$sinopsis,$episodios,$temporadas));
+
+        $sentencia = $this->db->prepare("INSERT INTO film (genero, nombre, sinopsis, episodios, temporadas, tipo, nombre_imagen) VALUES(?,?,?,?,?,'series',?)");
+        $sentencia->execute(array($genero,$nombre,$sinopsis,$episodios,$temporadas,$filepath));
     }
 
     public function borrarFilm($id){
@@ -102,6 +109,13 @@ class filmModel extends PDO{
         $target = 'imgage/' . uniqid() . '.' . strtolower(pathinfo($image['name'], PATHINFO_EXTENSION));
         move_uploaded_file($image['tmp_name'], $target);
         return $target;
+    }
+
+    public function getComentarios($id){
+        $sentencia = $this->db->prepare("SELECT * from comentarios AS c JOIN film AS f ON c.id_film = f.id WHERE c.id_film = ? ");
+        $sentencia->execute(array($id));
+        $comentarios = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        return $comentarios;
     }
 
 }
