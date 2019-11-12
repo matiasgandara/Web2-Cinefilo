@@ -3,7 +3,7 @@
   <div class="container-fluid bg-primary py-1">
     <div class="row text-center presentacion">
       <div class="col-12 ld-4 py-1">
-        <img src="image/cine.jpg" alt="Imagen de un cine. Responsive image">
+        <img src="{BASE_URL}image/cine.jpg" alt="Imagen de un cine. Responsive image">
       </div>
     </div>
     <div class="container pb-1">
