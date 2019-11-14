@@ -182,10 +182,39 @@ class filmController{
                     $this->model->insertarSerie($_POST['genero'],$_POST['nombre'],$_POST['sinopsis'],$_POST['episodios'],$_POST['temporadas']);
                     header("Location: " . SERIES); 
                 }
-        }else{
-        header("Location: " . SERIES); 
+            }else{
+            header("Location: " . SERIES); 
+            }
         }
-    }
+
+        public function insertarImagenes(){
+            if($this->helper->checkLoggedIn()){
+                if ($_FILES['imagengenes']) {
+                    foreach($_FILES["imagenes"]["tmp_name"] as $key => $tmp_name){
+                        if !($tmp_name['type'] == "image/jpeg" || $tmp_name['type'] == "image/jpg" || $tmp_name['type'] == "image/png") {
+                            $this->view->showError("Formato no aceptado");
+                            die();
+                        }
+                    }
+                $this->model->insertarImagenes($_FILES['imagenes']);
+                }
+            }
+
+        }
+
+        public function borrarCategoria($params = null){
+            $id = $params[':ID'];
+            if($this->helper->checkAdmin()){
+                if($this->modelcat->sePuedeModificar($id){
+                    $this->modelcat->borrarCategoria($id);
+                    header("Location: " . BASE_URL);
+                }else{
+                    $this->view->showError("No se puede eliminar la categoria ya que existen films con la misma categoria");
+                }
+            }else{
+                header("Location: " . BASE_URL);
+            }
+        }
       
 
 }

@@ -22,8 +22,22 @@ class categoriasModel extends PDO{
     }
 
     public function borrarCategoria($id){
+
         $sentencia = $this->db->prepare("DELETE FROM categoria WHERE id=?");
         $sentencia->execute(array($id));
+    }
+
+    public function sePuedeModificar($id){
+        $sentencia = $this->db->prepare("SELECT * FROM film AS f JOIN categorias AS c WHERE c.id = ? AND f.genero = c.genero");
+        $sentencia->execute(array($id));
+        $film = $sentencia->fetchAll(PDO::FETCH_OBJ);
+
+        if($film){
+            return false;
+        }else{
+            return true;
+        }
+
     }
 
     public function modificarCategoria($id,$replace){

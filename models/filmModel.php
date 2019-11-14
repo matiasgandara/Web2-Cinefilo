@@ -99,9 +99,11 @@ class filmModel extends PDO{
 
     public function addImagenes($id,$image){
         if ($image){
-            $pathImg = $this->uploadImage($image);
             $sentencia = $this->db->prepare("INSERT INTO galeria (id_film, dir_imagen) VALUES(?,?)");
+            foreach($_FILES["imagenes"]["tmp_name"] as $key => $tmp_name){
+            $pathImg = $this->uploadImage($tmp_name);
             $sentencia->execute(array($id, $pathImg));
+            }
         }
     }
 

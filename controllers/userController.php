@@ -41,7 +41,8 @@ class UserController {
         $pass2 = $_POST['pass2'];
 
         if(!empty($user) && $pass1 == $pass2){
-            $this->model->registro($user, $pass1);
+            $clave = password_hash($pass1, PASSWORD_DEFAULT);
+            $this->model->registro($user, $clave);
             header('Location: ' . BASE_URL);
         }else{
             header('Location: ' . BASE_URL);
