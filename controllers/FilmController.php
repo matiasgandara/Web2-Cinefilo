@@ -20,7 +20,7 @@ class filmController{
     public function getPeliculas(){
         $film = $this->model->getPeliculas();
         $categorias = $this->modelcat->getCategorias();
-        if($this->helper->checkAdmin()){
+        if($this->helper->checkAdmin()){    
             $user = $this->helper->getLoggedUserName();
             $this->view->DisplayPeliculasAdmin($film,$categorias,$user);
         }elseif ($this->helper->checkLoggedIn()) {
