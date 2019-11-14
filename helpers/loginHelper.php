@@ -22,6 +22,7 @@ class AuthHelper{
         
             if($this->checkLoggedIn()){
                 return ($_SESSION['ADMINISTRADOR']);
+                session_destroy();
             }else{
                 return false;
             }           
