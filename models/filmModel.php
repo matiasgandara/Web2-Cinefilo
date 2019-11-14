@@ -120,4 +120,11 @@ class filmModel extends PDO{
         return $comentarios;
     }
 
+    public function getComentario($id){
+        $sentencia = $this->db->prepare("SELECT * from comentarios WHERE id = ? ");
+        $sentencia->execute(array($id));
+        $comentario = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        return $comentario;
+    }
+
 }

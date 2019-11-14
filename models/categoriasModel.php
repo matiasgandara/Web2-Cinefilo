@@ -28,7 +28,7 @@ class categoriasModel extends PDO{
     }
 
     public function sePuedeModificar($id){
-        $sentencia = $this->db->prepare("SELECT * FROM film AS f JOIN categorias AS c WHERE c.id = ? AND f.genero = c.genero");
+        $sentencia = $this->db->prepare("SELECT * FROM film AS f JOIN categorias AS c ON f.genero = c.genero WHERE c.id = ?");
         $sentencia->execute(array($id));
         $film = $sentencia->fetchAll(PDO::FETCH_OBJ);
 

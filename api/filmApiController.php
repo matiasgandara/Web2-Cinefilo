@@ -32,6 +32,18 @@ class FilmApiController {
         $this->view->response($comentarios, 200);
     }
 
+    public function insertarComentario($params = null) {
+        $data = $this->getData();
+        $id = $this->model->insertarComentario($data->id_film, $data->nombre_usuario, $data->comentario, $data->puntuacion);
+        $comentario = $this->model->getComentario($id);
+        if ($comentario)
+            $this->view->response($comentario, 200);
+        else
+            $this->view->response("El comentario no fue creada", 500);
+
+        }
+    }
+
     public function  getPeliculasId($params = null) {
 
         $id = $params[':ID'];
