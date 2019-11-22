@@ -215,6 +215,38 @@ class filmController{
                 header("Location: " . BASE_URL);
             }
         }
+
+        public function insertarCategoria(){
+            if($this->helper->checkAdmin()){
+                $this->modelcat->insertarCategoria($_POST['genero']);
+                header("Location: " . BASE_URL);
+            }else{
+                header("Location: " . BASE_URL);
+            }
+        }
+
+        public function modificarCategoria($params = null){
+            $id = $params[':ID'];
+            if($this->helper->checkAdmin()){
+                if($this->modelcat->sePuedeModificar($id){
+                    $this->modelcat->modificarCategoria($id, $_POST['genero']);
+                    header("Location: " . BASE_URL);
+                }else{
+                    $this->view->showError("No se puede modificar la categoria ya que existen films con la misma categoria");
+                }
+            }else{
+                header("Location: " . BASE_URL);
+            }
+        }
+
+        public function getCategorias(){
+            if($this->helper->checkAdmin()){
+                $categorias = $this->modelcat->getCategorias();
+                $this->view->DisplayCategorias($categorias);
+            }else{
+                header("Location: " . BASE_URL);
+            }
+        }
       
 
 }

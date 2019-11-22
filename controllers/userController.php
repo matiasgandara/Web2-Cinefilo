@@ -48,6 +48,15 @@ class UserController {
             header('Location: ' . BASE_URL);
         }
     }
+
+    public function getUsuarios(){
+        if($this->authHelper->checkAdmin()){
+            $usuarios = $this->model->getUsuarios();
+            $this->view->DisplayUsuarios($usuarios);
+        }else{
+            header('Location: ' . BASE_URL);
+        }
+    }
     
 }
 

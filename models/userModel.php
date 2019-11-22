@@ -31,4 +31,13 @@ class userModel extends PDO{
         $sentencia = $this->db->prepare("UPDATE usuarios SET administrador = ? WHERE id = ?");
         $sentencia->execute(array($administrador, $id));
     }
+
+    public function getUsuarios(){
+        $sentencia = $this->db->prepare( "SELECT * FROM usuarios");
+        $sentencia->execute();
+        
+        return $sentencia->fetch(PDO::FETCH_OBJ);
+    
+    }
+
 }
