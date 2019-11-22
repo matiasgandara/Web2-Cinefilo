@@ -191,7 +191,7 @@ class filmController{
             if($this->helper->checkLoggedIn()){
                 if ($_FILES['imagengenes']) {
                     foreach($_FILES["imagenes"]["tmp_name"] as $key => $tmp_name){
-                        if !($tmp_name['type'] == "image/jpeg" || $tmp_name['type'] == "image/jpg" || $tmp_name['type'] == "image/png") {
+                        if (!($tmp_name['type'] == "image/jpeg" || $tmp_name['type'] == "image/jpg" || $tmp_name['type'] == "image/png")) {
                             $this->view->showError("Formato no aceptado");
                             die();
                         }
@@ -205,11 +205,12 @@ class filmController{
         public function borrarCategoria($params = null){
             $id = $params[':ID'];
             if($this->helper->checkAdmin()){
-                if($this->modelcat->sePuedeModificar($id){
+                if($this->modelcat->sePuedeModificar($id)){
                     $this->modelcat->borrarCategoria($id);
                     header("Location: " . BASE_URL);
                 }else{
-                    $this->view->showError("No se puede eliminar la categoria ya que existen films con la misma categoria");
+                    $user = $this->helper->getLoggedUserName();
+                    $this->view->showError("No se puede eliminar la categoria ya que existen films con la misma categoria",$user);
                 }
             }else{
                 header("Location: " . BASE_URL);
@@ -227,12 +228,14 @@ class filmController{
 
         public function modificarCategoria($params = null){
             $id = $params[':ID'];
+            echo($_POST['genero']);
+            die;
             if($this->helper->checkAdmin()){
-                if($this->modelcat->sePuedeModificar($id){
+                if($this->modelcat->sePuedeModificar($id)){
                     $this->modelcat->modificarCategoria($id, $_POST['genero']);
                     header("Location: " . CATEGORIAS);
                 }else{
-                    $this->view->showError("No se puede modificar la categoria ya que existen films con la misma categoria");
+                    $this->view->showError("No se puede modificar la categoria ya que existen films con la misma categoria",);
                 }
             }else{
                 header("Location: " . BASE_URL);

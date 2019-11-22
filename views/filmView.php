@@ -91,5 +91,18 @@ class FilmView {
         $smarty->display('templates/serieadmin.tpl');
     }
     
+    public function DisplayCategorias($categorias,$user){
+        $smarty = new Smarty();
+        $smarty->assign('categorias', $categorias);
+        $smarty->assign('idlogin', $user);
+        $smarty->display('templates/categorias.tpl');
+    }
+
+    public function showError($error,$user){
+        $smarty = new Smarty();
+        $smarty->assign('error', $error);
+        $smarty->assign('idlogin', $user);
+        $smarty->display('templates/error.tpl');
+    }
 
 }

@@ -18,7 +18,7 @@ define("INSERTAR_SERIE", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_
 define("BORRAR_PELICULA", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/borrar_pelicula');
 define("BORRAR_SERIE", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/borrar_serie');
 define("NOSOTROS", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/nosotros');
-define("SERVICIOS", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/servicios');
+define("CATEGORIAS", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/categorias');
 
 
 
@@ -46,7 +46,8 @@ $r->addRoute("nosotros", "GET", "HomeController", "displayNos");
 $r->addRoute("servicios", "GET", "HomeController", "displayServicios");
 $r->addRoute("categorias", "GET", "FilmController", "getCategorias");
 $r->addRoute("borrar_categoria/:ID", "GET", "FilmController", "borrarCategoria");
-$r->addRoute("editar_serie/:ID", "POST", "FilmController", "modificarCategoria");
+$r->addRoute("editar_categoria/:ID", "POST", "FilmController", "modificarCategoria");
+$r->addRoute("insertar_categoria/:ID", "POST", "FilmController", "insertarCategoria");
 $r->addRoute("usuarios", "GET", "userController", "getUsuarios");
 
  //Ruta por defecto.

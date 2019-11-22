@@ -39,4 +39,10 @@ class HomeView {
         $smarty->assign('idlogin', $id);
         $smarty->display('templates/serviciosLogged.tpl');
     }
+    public function DisplayAdmin($id){
+        $smarty = new Smarty();
+        $smarty->assign('idlogin', $id);
+        $smarty->display('templates/homeadmin.tpl');
+    }
+
 }
