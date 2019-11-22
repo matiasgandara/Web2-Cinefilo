@@ -10,13 +10,16 @@ class homeController{
         $this->view = new homeView();
         $this->model = new userModel();
         $this->helper = new AuthHelper();
-        
-    }
+        $this->modelcat = new categoriasModel();
     
 
     public function getHome(){
 
-        if ($this->helper->checkLoggedIn()){
+        if($this->helper->checkAdmin){
+            $user = $this->helper->getLoggedUserName();
+            $categorias = $this->modelcat->getCategorias();
+            $this->view->DisplayAdmin($categorias, $user);
+        }elseif($this->helper->checkLoggedIn()){
             $user = $this->helper->getLoggedUserName();
             $this->view->DisplayLogged($user);
         }else{
