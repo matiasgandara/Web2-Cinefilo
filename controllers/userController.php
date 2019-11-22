@@ -51,8 +51,9 @@ class UserController {
 
     public function getUsuarios(){
         if($this->authHelper->checkAdmin()){
+            $user = $this->aithHelper->getLoggedUserName();
             $usuarios = $this->model->getUsuarios();
-            $this->view->DisplayUsuarios($usuarios);
+            $this->view->DisplayUsuarios($usuarios, $user);
         }else{
             header('Location: ' . BASE_URL);
         }

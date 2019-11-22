@@ -230,7 +230,7 @@ class filmController{
             if($this->helper->checkAdmin()){
                 if($this->modelcat->sePuedeModificar($id){
                     $this->modelcat->modificarCategoria($id, $_POST['genero']);
-                    header("Location: " . BASE_URL);
+                    header("Location: " . CATEGORIAS);
                 }else{
                     $this->view->showError("No se puede modificar la categoria ya que existen films con la misma categoria");
                 }
@@ -242,7 +242,8 @@ class filmController{
         public function getCategorias(){
             if($this->helper->checkAdmin()){
                 $categorias = $this->modelcat->getCategorias();
-                $this->view->DisplayCategorias($categorias);
+                $user = $this->helper->getLoggedUserName();
+                $this->view->DisplayCategorias($categorias, $user);
             }else{
                 header("Location: " . BASE_URL);
             }
