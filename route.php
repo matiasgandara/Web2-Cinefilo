@@ -45,6 +45,8 @@ $r->addRoute("borrar_serie/:ID", "GET", "FilmController", "borrarSerie");
 $r->addRoute("nosotros", "GET", "HomeController", "displayNos");
 $r->addRoute("servicios", "GET", "HomeController", "displayServicios");
 $r->addRoute("categorias", "GET", "FilmController", "getCategorias");
+$r->addRoute("borrar_categoria/:ID", "GET", "FilmController", "borrarCategoria");
+$r->addRoute("editar_serie/:ID", "POST", "FilmController", "modificarCategoria");
 $r->addRoute("usuarios", "GET", "userController", "getUsuarios");
 
  //Ruta por defecto.
