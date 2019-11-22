@@ -36,6 +36,7 @@ class UserController {
     }
 
     public function registro(){
+
         $user = $_POST['user'];
         $pass1 = $_POST['pass1'];
         $pass2 = $_POST['pass2'];
@@ -51,13 +52,20 @@ class UserController {
 
     public function getUsuarios(){
         if($this->authHelper->checkAdmin()){
-            $user = $this->aithHelper->getLoggedUserName();
+            $user = $this->authHelper->getLoggedUserName();
             $usuarios = $this->model->getUsuarios();
             $this->view->DisplayUsuarios($usuarios, $user);
         }else{
             header('Location: ' . BASE_URL);
         }
     }
-    
+
+    public function darAdmin($params = NULL){
+        $id = $params[':ID'];
+        if($this->authHelper->checkAdmin()){
+            $this->model->editarAdmin($id);
+            header('Location: ' . USUARIOS);
+        }
+    }
 }
 

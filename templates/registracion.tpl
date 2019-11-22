@@ -1,6 +1,6 @@
 {include file="header.tpl"}
 
-<form action="verify" method="POST">
+<form action="registrar" method="POST">
         <div class="bg-secondary text-white px-4 py-2">
         <div class="form-group">
             <label for="exampleDropdownFormEmail2">Ingresá tu Usuario</label>
@@ -22,6 +22,7 @@
             </label>
             </div>
         </div>
+        <button type="submit" class="btn btn-primary" href="registrar">Crear</button>
     </div>
 </form>
 

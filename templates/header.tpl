@@ -32,7 +32,7 @@
             <a class="nav-link " href="nosotros">Nosotros</a>
           </li>
           <li class="nav-item active border-left">
-            <a class="nav-link  " href="servicios">Servicios</a>
+            <a class="nav-link  " href="registro">Registro</a>
           </li>
           <li class="nav-item active border-left">
             <a class="nav-link " href="contacto">Contáctanos</a>

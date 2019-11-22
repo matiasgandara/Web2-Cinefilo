@@ -17,9 +17,9 @@ class userModel extends PDO{
         return $pass;
     }
 
-    public function Registro($user, $pass, $administrador = null){
-        $sentencia = $this->db->prepare("INSERT INTO usuarios (nombre_usuario, clave, administrador) VALUES(?,?,?)");
-        $sentencia->execute(array($user, $pass, $administrador));
+    public function Registro($user, $pass){
+        $sentencia = $this->db->prepare("INSERT INTO usuarios (nombre_usuario, clave) VALUES(?,?)");
+        $sentencia->execute(array($user, $pass));
     }
 
     public function eliminarUser($id){
@@ -27,16 +27,17 @@ class userModel extends PDO{
         $sentencia->execute(array($id));
     }
 
-    public function editarAdmin($id, $administrador){
-        $sentencia = $this->db->prepare("UPDATE usuarios SET administrador = ? WHERE id = ?");
-        $sentencia->execute(array($administrador, $id));
+    public function editarAdmin($id){
+        $sentencia = $this->db->prepare("UPDATE usuarios SET administrador = 1 WHERE id = ?");
+        $sentencia->execute(array($id));
     }
 
     public function getUsuarios(){
         $sentencia = $this->db->prepare( "SELECT * FROM usuarios");
         $sentencia->execute();
         
-        return $sentencia->fetch(PDO::FETCH_OBJ);
+        $usuarios = $sentencia->fetch(PDO::FETCH_OBJ);
+        return $usuarios;
     
     }
 
