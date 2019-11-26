@@ -1,6 +1,4 @@
 {include file="vue/comenta.tpl"}
-
-
 {literal}
     <div id="vue_comentarios">      
         <div v-for="comentario in comentarios" class="card w-75">

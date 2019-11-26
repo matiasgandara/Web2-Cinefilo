@@ -13,9 +13,7 @@
             <a class="btn btn-success btn-lg" href="home" role="button">Inicio</a>
           </div>
         </div>
-        <div class="col md-3 "> </div>
         {* <div class="col md-3 "> </div> *}
-
         <div class="col md-3 ">
           <div class="text-center">
             <a class="btn btn-success btn-lg" href="peliculas" role="button">Peliculas</a>

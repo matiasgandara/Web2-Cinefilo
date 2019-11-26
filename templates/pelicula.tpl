@@ -12,7 +12,7 @@
                     </div> *}
                     <div class="col-md-9">
                         <div class="card-body">
-                          <h5 class="card-title"> <a href="filmcula/{$film->id}>{$film->nombre}</a></h5>
+                          <h5 class="card-title" id="id_pelicula" data="{$film->id}">{$film->nombre}</h5>
                           <h6 class="card-subtitle mb-2 text-muted">Genero: {$film->genero}</h6>
                           <h6 class="card-subtitle mb-2 text-muted">Duracion: {$film->duracion}</h6>
                           <p class="card-text">Sinopsis: {$film->sinopsis}</p>
@@ -22,10 +22,6 @@
             </div> 
         </article>
     </main>
-   {include file="vue/comentarios.tpl"} 
-
-  </div> 
-</div>  
-
-
+    </div> 
+{include file="vue/comentarios.tpl"} 
 {include file="footer.tpl"}

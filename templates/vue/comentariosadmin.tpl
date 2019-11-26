@@ -1,4 +1,4 @@
-{include file="comenta.tpl"}
+{include file="vue/comenta.tpl"}
     {*  cargo los comentarios de los usuarios *}
 {literal}
     <div id="vue_comentarios">      

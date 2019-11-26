@@ -11,7 +11,7 @@
                       </div>
                       <div class="col-md-9">
                         <div class="card-body">
-                          <h5 class="card-title"> <a href="pelicula/{$peli->id}>{$peli->nombre}</a></h5>
+                          <h5 class="card-title"><a href="pelicula/{$peli->id}">{$peli->nombre}</a></h5>
                           <h6 class="card-subtitle mb-2 text-muted">Genero: {$peli->genero}</h6>
                           <h6 class="card-subtitle mb-2 text-muted">Duracion: {$peli->duracion}</h6>
                           <p class="card-text">Sinopsis: {$peli->sinopsis}</p>
