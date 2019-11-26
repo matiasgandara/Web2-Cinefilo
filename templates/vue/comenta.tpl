@@ -1,5 +1,5 @@
     
-    <form id="form_comentario" action="insertar" method="POST">
+    <form id="form_comentario"  method="POST">
         <div class="input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="nombre_usuario" data="{$idlogin}">Comenta!!!{$idlogin}</span>
@@ -13,7 +13,7 @@
                 <option>4</option>
                 <option>5</option>
             </select>
-            <button type="submit" class="btn btn-primary" value="insertar">Comentar</button>
+            <button type="submit" class="btn btn-primary" >Comentar</button>
         </div>
     </form>
     

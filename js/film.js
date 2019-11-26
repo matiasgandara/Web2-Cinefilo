@@ -3,7 +3,7 @@
 // event listeners
 document.querySelector("#form_comentario").addEventListener('submit', addComentario);
 /* document.querySelector(".btn_borrar").addEventListener('submit', borrarComentario); */
-let idcom = document.querySelector("#id_serie").getAttribute('data');
+let idcom = document.querySelector("#id_film").getAttribute('data');
 // define la app Vue
 let app = new Vue({
     el: "#vue_comentarios",
@@ -23,27 +23,30 @@ let app = new Vue({
 
     }
 
-    function addComentario(){
-        /* e.preventDefault(); */ 
-        let apicom = "api/comentario/" + idcom;
-        
+    function addComentario(e){
+
+        alert("1");
+        e.preventDefault();
+        alert("2");
         let data = {
-            id_film:  document.querySelector("#id_serie").getAttribute('data'),
+            id_film:  document.querySelector("#id_film").getAttribute('data'),
             nombre_usuario:  document.querySelector("#nombre_usuario").getAttribute('data'),
             comentario:  document.querySelector("#comentario").value,
-            puntuacion:  document.querySelector("#puntuacion").value
+            puntuacion:  document.querySelector("#puntuacion").value,
         }
-    
-        fetch( apicom, {
+        console.log(data);
+        alert("3");
+        fetch('api/comentario', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},       
             body: JSON.stringify(data) 
          })
          .then(response => {
+            alert("4");
              getComentarios();
          })
          .catch(error => console.log(error));
     }
-    
+
 getComentarios();
 
