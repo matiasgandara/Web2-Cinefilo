@@ -18,8 +18,8 @@
     // rutas
     /* 
     $router->addRoute("home", "GET", "HomeController", "getHome"); */
-    $router->addRoute("comentarios", "GET", "filmApiController", "getComentarios");
-    $router->addRoute("comentarios", "POST", "filmApiController", "addComentario");
+    $router->addRoute("comentarios/:ID", "GET", "filmApiController", "getComentarios");
+    $router->addRoute("comentario/:ID", "POST", "filmApiController", "addComentario");
     $router->addRoute("peliculas", "GET", "filmApiController", "getPeliculas");
     $router->addRoute("pelicula/:ID","GET","filmApiController", "getFilm");
     $router->addRoute("peliculas/:ID", "GET", "filmApiController", "getPeliculasId");

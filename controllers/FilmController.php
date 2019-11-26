@@ -207,7 +207,7 @@ class filmController{
             if($this->helper->checkAdmin()){
                 if($this->modelcat->sePuedeModificar($id)){
                     $this->modelcat->borrarCategoria($id);
-                    header("Location: " . BASE_URL);
+                    header("Location: " . CATEGORIAS);
                 }else{
                     $user = $this->helper->getLoggedUserName();
                     $this->view->showError("No se puede eliminar la categoria ya que existen films con la misma categoria",$user);
@@ -220,7 +220,7 @@ class filmController{
         public function insertarCategoria(){
             if($this->helper->checkAdmin()){
                 $this->modelcat->insertarCategoria($_POST['genero']);
-                header("Location: " . BASE_URL);
+                header("Location: " . CATEGORIAS);
             }else{
                 header("Location: " . BASE_URL);
             }

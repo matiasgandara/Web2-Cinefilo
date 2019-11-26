@@ -114,7 +114,7 @@ class filmModel extends PDO{
     }
 
     public function getComentarios($id){
-        $sentencia = $this->db->prepare("SELECT * from comentarios AS c JOIN film AS f ON c.id_film = f.id WHERE c.id_film = ? ");
+        $sentencia = $this->db->prepare("SELECT * from comentarios WHERE id_film = ? ");
         $sentencia->execute(array($id));
         $comentarios = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $comentarios;

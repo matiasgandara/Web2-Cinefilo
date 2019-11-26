@@ -32,13 +32,15 @@ class FilmApiController {
         $this->view->response($comentarios, 200);
     }
 
-    public function insertarComentario($params = null) {
+    public function addComentario($params = []) {
         $data = $this->getData();
+        var_dump ($data);
+        die;
         $id = $this->model->insertarComentario($data->id_film, $data->nombre_usuario, $data->comentario, $data->puntuacion);
-        $comentario = $this->model->getComentario($id);
-        if ($comentario)
+        $comentario = $this->model->getComentarios($id);
+        if ($comentario){
             $this->view->response($comentario, 200);
-        else
+        }else{
             $this->view->response("El comentario no fue creada", 500);
 
         }

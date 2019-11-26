@@ -3,7 +3,7 @@
             <div class="input-group-prepend">
                 <span class="input-group-text" id="nombre_usuario" data="{$idlogin}">Comenta!!!{$idlogin}</span>
             </div>
-            <textarea class="form-control" aria-label="With textarea" id="comentario" data="{$film->id}"></textarea>
+            <textarea class="form-control" aria-label="With textarea" id="comentario"></textarea>
             <label for="exampleFormControlSelect1">Puntuacion</label>
             <select class="form-control" id="puntuacion"> {* ver hubicacion *}
                 <option>1</option>
