@@ -51,7 +51,7 @@ $r->addRoute("borrar_categoria/:ID", "GET", "FilmController", "borrarCategoria")
 $r->addRoute("editar_categoria/:ID", "POST", "FilmController", "modificarCategoria");
 $r->addRoute("insertar_categoria/:ID", "POST", "FilmController", "insertarCategoria");
 $r->addRoute("usuarios", "GET", "userController", "getUsuarios");
-$r->addRoute("darAdmin/:ID", "POST", "userController", "darAdmin");
+$r->addRoute("darAdmin/:ID", "GET", "userController", "darAdmin");
 
  //Ruta por defecto.
  $r->setDefaultRoute("HomeController", "getHome");

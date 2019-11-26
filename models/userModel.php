@@ -36,7 +36,7 @@ class userModel extends PDO{
         $sentencia = $this->db->prepare( "SELECT * FROM usuarios");
         $sentencia->execute();
         
-        $usuarios = $sentencia->fetch(PDO::FETCH_OBJ);
+        $usuarios = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $usuarios;
     
     }

@@ -19,7 +19,7 @@ class userView {
 
     public function DisplayUsuarios($listauser,$user){
         $smarty = new Smarty();
-        $smarty->assign('listauser', $listauser);
+        $smarty->assign('lista', $listauser);
         $smarty->assign('idlogin', $user);
         $smarty->display('templates/usuarios.tpl');
     }

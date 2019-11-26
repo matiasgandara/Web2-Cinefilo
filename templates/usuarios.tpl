@@ -8,11 +8,11 @@
     </tr>
   </thead>
   <tbody>
-  {foreach $listauser as $us}
+  {foreach from=$lista item=us}
     <tr>
       <td>{$us->nombre_usuario}</td>
       <td>{$us->administrador}</td>
-      <td><button type="submit" class="btn btn-primary" href="darAdmin">Cambiar</button></td>
+      <td><a method="GET" href="darAdmin/{$us->id}" class="btn btn-primary">Cambiar</a></td>
     </tr>
     {/foreach}
   </tbody>
