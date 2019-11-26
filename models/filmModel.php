@@ -58,7 +58,7 @@ class filmModel extends PDO{
             $filepath = $this->uploadImage($imagen);
 
         $sentencia = $this->db->prepare("INSERT INTO film (genero, nombre, sinopsis, duracion, tipo, nombre_imagen) VALUES(?,?,?,?,'peliculas',?)");
-        $sentencia->execute(array($genero,$nombre,$sinopsis,$duracion,$imagen));
+        $sentencia->execute(array($genero,$nombre,$sinopsis,$duracion,$filepath));
     }
 
     public function insertarSerie($genero,$nombre,$sinopsis,$episodios,$temporadas,$imagen = null){
@@ -108,7 +108,7 @@ class filmModel extends PDO{
     }
 
     private function uploadImage($image){
-        $target = 'imgage/' . uniqid() . '.' . strtolower(pathinfo($image['name'], PATHINFO_EXTENSION));
+        $target = 'image/' . uniqid() . '.' . strtolower(pathinfo($image['name'], PATHINFO_EXTENSION));
         move_uploaded_file($image['tmp_name'], $target);
         return $target;
     }

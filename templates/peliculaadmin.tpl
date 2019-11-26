@@ -23,7 +23,7 @@
         </article>
     </main>
 
-    <form action="editar_pelicula" method="POST" enctype="multipart/form-data">
+    <form action="editar_pelicula" method="POST">
         <div class="rounded border border-success my-1 mx-1">
           <input type="text" class="form-control " placeholder="{$film->nombre}" aria-label="NOMBRE PELICULA" aria-describedby="basic-addon1" name="nombre">
           <input type="text" class="form-control " placeholder="{$film->sinopsis}" aria-label="SINOPSIS" aria-describedby="basic-addon1" name="sinopsis">
@@ -39,19 +39,11 @@
             </select> 
             <input type="text" class="form-control mr-1" placeholder="DIR IMAGEN" aria-label="DIR IMAGEN" aria-describedby="basic-addon1" name="nombre_imagen">
         </div>
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text">Subir</span>
-            </div>
-            <div class="custom-file">
-                <input type="file" class="custom-file-input" id="imgPeli" name="imagen">
-                <label class="custom-file-label" for="inputGroupFile01">Seleccinar Archivo</label>
-            </div>
-        </div>
         <div class="btn-group py-2 px-1 container"  role="group" aria-label="Basic example "  class="justify-content-center">
             <button type="submit" value="editar_pelicula" class="btn bg-success text-white" name="btnGuardar">Guardar</button>
         </div>
     </form>
+    {include file="cargarimagenes.tpl"}
    {include file="vue/comentariosadmin.tpl"} 
 
   </div> 

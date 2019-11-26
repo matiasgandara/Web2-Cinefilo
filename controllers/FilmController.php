@@ -151,9 +151,9 @@ class filmController{
 
     public function insertarPelicula(){
         if($this->helper->checkLoggedIn()){
-            if ($_FILES['imagen']['name']) {
-                if ($_FILES['imagen']['type'] == "image/jpeg" || $_FILES['imagen']['type'] == "image/jpg" || $_FILES['imagen']['type'] == "image/png") {
-                    $this->model->insertarPelicula($_POST['genero'],$_POST['nombre'],$_POST['sinopsis'],$_POST['duracion'],$_FILES['imagen']);
+            if ($_FILES['nombre_imagen']['name']) {
+                if ($_FILES['nombre_imagen']['type'] == "image/jpeg" || $_FILES['nombre_imagen']['type'] == "image/jpg" || $_FILES['nombre_imagen']['type'] == "image/png") {
+                    $this->model->insertarPelicula($_POST['genero'],$_POST['nombre'],$_POST['sinopsis'],$_POST['duracion'],$_FILES['nombre_imagen']);
                     header("Location: " . PELICULAS); 
                 }else{
                     $this->view->showError("Formato no aceptado");
@@ -187,16 +187,17 @@ class filmController{
             }
         }
 
-        public function insertarImagenes(){
+        public function insertarImagenes($params = null){
+            $id = $params[':ID'];
             if($this->helper->checkLoggedIn()){
-                if ($_FILES['imagengenes']) {
+                if ($_FILES['imagenes']) {
                     foreach($_FILES["imagenes"]["tmp_name"] as $key => $tmp_name){
                         if (!($tmp_name['type'] == "image/jpeg" || $tmp_name['type'] == "image/jpg" || $tmp_name['type'] == "image/png")) {
                             $this->view->showError("Formato no aceptado");
                             die();
                         }
                     }
-                $this->model->insertarImagenes($_FILES['imagenes']);
+                $this->model->addImagenes($id,$_FILES['imagenes']);
                 }
             }
 
@@ -207,7 +208,7 @@ class filmController{
             if($this->helper->checkAdmin()){
                 if($this->modelcat->sePuedeModificar($id)){
                     $this->modelcat->borrarCategoria($id);
-                    header("Location: " . CATEGORIAS);
+                    header("Location: " . BASE_URL);
                 }else{
                     $user = $this->helper->getLoggedUserName();
                     $this->view->showError("No se puede eliminar la categoria ya que existen films con la misma categoria",$user);
@@ -220,7 +221,7 @@ class filmController{
         public function insertarCategoria(){
             if($this->helper->checkAdmin()){
                 $this->modelcat->insertarCategoria($_POST['genero']);
-                header("Location: " . CATEGORIAS);
+                header("Location: " . BASE_URL);
             }else{
                 header("Location: " . BASE_URL);
             }

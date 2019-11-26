@@ -23,7 +23,7 @@
               </article>
             {/foreach}
     </main>
-    <form action="insertar_pelicula" method="POST">
+    <form action="insertar_pelicula" method="POST" enctype="multipart/form-data">
         <div class="rounded border border-success my-1 mx-1">
           <input type="text" class="form-control " placeholder="NOMBRE PELICULA" aria-label="NOMBRE PELICULA" aria-describedby="basic-addon1" name="nombre">
           <input type="text" class="form-control " placeholder="SINOPSIS" aria-label="SINOPSIS" aria-describedby="basic-addon1" name="sinopsis">
@@ -36,7 +36,7 @@
                       <option>{$categoria->genero}</option>
                   {/foreach}
             </select> 
-            <input type="text" class="form-control mr-1" placeholder="DIR IMAGEN" aria-label="DIR IMAGEN" aria-describedby="basic-addon1" name="nombre_imagen">
+            <input type="file" class="form-control mr-1" placeholder="DIR IMAGEN" aria-label="DIR IMAGEN" aria-describedby="basic-addon1" name="nombre_imagen">
         </div>
         <div class="btn-group py-2 px-1 container"  role="group" aria-label="Basic example "  class="justify-content-center">
             <button type="submit" value="insertar_pelicula" class="btn bg-success text-white" name="btnIngresar">Ingresar</button>
