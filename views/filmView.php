@@ -56,37 +56,33 @@ class FilmView {
         $smarty->display('templates/serieslogged.tpl');
     }
 
-    public function DisplayPelicula($film, $imagenes, $comentarios, $user){
+    public function DisplayPelicula($film, $imagenes, $user){
         $smarty = new Smarty();
         $smarty->assign('film', $film);
         $smarty->assign('imagenes', $imagenes);
-        $smarty->assign('comentarios', $comentarios);
         $smarty->assign('idlogin', $user);
         $smarty->display('templates/pelicula.tpl');
     }
 
-    public function DisplaySerie($film, $imagenes, $comentarios, $user){
+    public function DisplaySerie($film, $imagenes, $user){
         $smarty = new Smarty();
         $smarty->assign('film', $film);
         $smarty->assign('imagenes', $imagenes);
-        $smarty->assign('comentarios', $comentarios);
         $smarty->assign('idlogin', $user);
         $smarty->display('templates/serie.tpl');
     }
-    public function DisplayPeliculaAdmin($film, $imagenes, $comentarios, $user){
+    public function DisplayPeliculaAdmin($film, $imagenes,$user){
         $smarty = new Smarty();
         $smarty->assign('film', $film);
         $smarty->assign('imagenes', $imagenes);
-        $smarty->assign('comentarios', $comentarios);
         $smarty->assign('idlogin', $user);
         $smarty->display('templates/peliculaadmin.tpl');
     }
 
-    public function DisplaySerieAdmin($film, $imagenes, $comentarios, $user){
+    public function DisplaySerieAdmin($film, $imagenes,$user){
         $smarty = new Smarty();
         $smarty->assign('film', $film);
         $smarty->assign('imagenes', $imagenes);
-        $smarty->assign('comentarios', $comentarios);
         $smarty->assign('idlogin', $user);
         $smarty->display('templates/serieadmin.tpl');
     }

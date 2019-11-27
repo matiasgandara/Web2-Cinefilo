@@ -11,7 +11,7 @@
         </div>
             {foreach $imagenes as $img}                     
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="image/{$img->dir_imagen}">
+                    <img class="d-block w-100" src="{$img->dir_imagen}">
                 </div>
             {/foreach}
         </div>

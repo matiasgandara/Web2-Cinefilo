@@ -1,4 +1,4 @@
- <form action="insertar_imagenes" method="POST" enctype="multipart/form-data"> 
+ <form action="insertar_imagenes/{$film->id}" method="POST" enctype="multipart/form-data"> 
     <div class="input-group mb-3">
         <div class="input-group-prepend">
             <span class="input-group-text">Subir</span>

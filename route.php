@@ -49,7 +49,7 @@ $r->addRoute("servicios", "GET", "HomeController", "displayServicios");
 $r->addRoute("categorias", "GET", "FilmController", "getCategorias");
 $r->addRoute("borrar_categoria/:ID", "GET", "FilmController", "borrarCategoria");
 $r->addRoute("editar_categoria/:ID", "POST", "FilmController", "modificarCategoria");
-$r->addRoute("insertar_categoria/:ID", "POST", "FilmController", "insertarCategoria");
+$r->addRoute("insertar_categoria", "POST", "FilmController", "insertarCategoria");
 $r->addRoute("usuarios", "GET", "userController", "getUsuarios");
 $r->addRoute("darAdmin/:ID", "GET", "userController", "darAdmin");
 

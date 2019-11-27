@@ -23,7 +23,7 @@ class categoriasModel extends PDO{
 
     public function borrarCategoria($id){
 
-        $sentencia = $this->db->prepare("DELETE FROM categoria WHERE id=?");
+        $sentencia = $this->db->prepare("DELETE FROM categorias WHERE id=?");
         $sentencia->execute(array($id));
     }
 
@@ -31,7 +31,6 @@ class categoriasModel extends PDO{
         $sentencia = $this->db->prepare("SELECT * FROM film AS f JOIN categorias AS c ON f.genero = c.genero WHERE c.id = ?");
         $sentencia->execute(array($id));
         $film = $sentencia->fetchAll(PDO::FETCH_OBJ);
-
         if($film){
             return false;
         }else{

@@ -76,17 +76,17 @@ class filmModel extends PDO{
         $sentencia->execute(array($id));
     }
 
-    public function editarPelicula($id,$genero,$nombre,$sinopsis,$duracion){
+    public function editarPelicula($id,$nombre,$sinopsis,$duracion){
 
-        $sentencia = $this->db->prepare("UPDATE film SET genero = ?, nombre = ?, sinopsis = ?, duracion = ? WHERE id = ?");
-        $sentencia->execute(array($genero,$nombre,$sinopsis,$duracion,$id));
+        $sentencia = $this->db->prepare("UPDATE film SET nombre = ?, sinopsis = ?, duracion = ? WHERE id = ?");
+        $sentencia->execute(array($nombre,$sinopsis,$duracion,$id));
 
     }
 
-    public function editarSerie($id,$genero,$nombre,$sinopsis,$episodios,$temporadas){
+    public function editarSerie($id,$nombre,$sinopsis,$episodios,$temporadas){
 
-        $sentencia = $this->db->prepare("UPDATE film SET genero = ?, nombre = ?, sinopsis = ?, episodios = ?, temporadas = ? WHERE id = ?");
-        $sentencia->execute(array($genero,$nombre,$sinopsis,$episodios,$temporadas,$id));
+        $sentencia = $this->db->prepare("UPDATE film SET  nombre = ?, sinopsis = ?, episodios = ?, temporadas = ? WHERE id = ?");
+        $sentencia->execute(array($nombre,$sinopsis,$episodios,$temporadas,$id));
 
     }
 
@@ -100,8 +100,8 @@ class filmModel extends PDO{
     public function addImagenes($id,$image){
         if ($image){
             $sentencia = $this->db->prepare("INSERT INTO galeria (id_film, dir_imagen) VALUES(?,?)");
-            foreach($_FILES["imagenes"]["tmp_name"] as $key => $tmp_name){
-            $pathImg = $this->uploadImage($tmp_name);
+            foreach($image["tmp_name"] as $tmp){
+            $pathImg = $this->uploadImages($tmp);
             $sentencia->execute(array($id, $pathImg));
             }
         }
@@ -110,6 +110,12 @@ class filmModel extends PDO{
     private function uploadImage($image){
         $target = 'image/' . uniqid() . '.' . strtolower(pathinfo($image['name'], PATHINFO_EXTENSION));
         move_uploaded_file($image['tmp_name'], $target);
+        return $target;
+    }
+
+    private function uploadImages($image){
+        $target = 'image/' . uniqid() . '.jpg';
+        move_uploaded_file($image, $target);
         return $target;
     }
 
