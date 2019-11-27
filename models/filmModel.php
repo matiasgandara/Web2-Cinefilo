@@ -133,4 +133,14 @@ class filmModel extends PDO{
         return $comentario;
     }
 
+    public function eliminarComentario($id){
+        $sentencia = $this->db->prepare("DELETE FROM comentarios WHERE id=?");
+        $sentencia->execute(array($id));
+    }
+
+    public function insertarComentario($id_film, $nombre_usuario, $comentario, $puntuacion){
+        $sentencia = $this->db->prepare("INSERT INTO comentarios (id_film, nombre_usuario, comentario, puntuacion) VALUES(?,?,?,?)");
+        $sentencia->execute(array($id_film, $nombre_usuario, $comentario, $puntuacion));
+    }
+
 }

@@ -32,10 +32,23 @@ class FilmApiController {
         $this->view->response($comentarios, 200);
     }
 
-    public function addComentario() {
+    public function eliminarComentario($params = null){
+        $id = $params[':ID'];
+        $comentario = $this->model->getComentario($id);
+        if ($comentario) {
+            $this->model->eliminarComentario($id);
+            $this->view->response("El comentario fue borrada con exito.", 200);
+        } else{
+            $this->view->response("El comentario con el id={$id} no existe", 404);
+        }
+    }
+
+    public function insertarComentario($params = []) {
+        var_dump("lalala");
+        die;
         $data = getData();
         $id = $this->model->insertarComentario($data->id_film, $data->nombre_usuario, $data->comentario, $data->puntuacion);
-        $comentario = $this->model->getComentarios($id);
+        $comentario = $this->model->getComentario($id);
         if ($comentario){
             $this->view->response($comentario, 200);
         }else{
@@ -77,8 +90,9 @@ class FilmApiController {
         if ($film) {
             $this->model->borrarFilm($id);
             $this->view->response("El film fue borrada con exito.", 200);
-        } else
+        } else{
             $this->view->response("El film con el id={$id} no existe", 404);
+        }
     }
 
     public function insertarPelicula($params = null) {

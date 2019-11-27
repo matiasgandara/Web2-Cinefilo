@@ -24,29 +24,42 @@ let app = new Vue({
     }
 
     function addComentario(e){
-
-        alert("1");
         e.preventDefault();
-        alert("2");
-        let data = {
+
+       let data = {
             id_film:  document.querySelector("#id_film").getAttribute('data'),
             nombre_usuario:  document.querySelector("#nombre_usuario").getAttribute('data'),
             comentario:  document.querySelector("#comentario").value,
             puntuacion:  document.querySelector("#puntuacion").value,
         }
         console.log(data);
-        alert("3");
-        fetch('api/comentario', {
+
+        fetch( 'api/comentario', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},       
-            body: JSON.stringify(data) 
+            body: JSON.stringify(data)
          })
          .then(response => {
-            alert("4");
+
+            console.log("llega?");
              getComentarios();
          })
          .catch(error => console.log(error));
     }
+
+    function deleteComentario(){
+        let apicom = "api/comentarios/" + idcom;
+
+        fetch(apicom, {
+            method: 'DELETE',
+            headers: {'Content-Type': 'application/json'}       
+        })
+        .then(response => {
+            getComentarios();
+        })
+        .catch(error => console.log(error));
+    }
+
 
 getComentarios();
 

@@ -40,8 +40,8 @@ class categoriasModel extends PDO{
     }
 
     public function modificarCategoria($id,$replace){
-        $sentencia = $this->db->prepare("UPDATE categoria SET genero=? WHERE id=?");
-        $sentencia = execute(array($replace,$id));
+        $sentencia = $this->db->prepare("UPDATE categorias SET genero=? WHERE id=?");
+        $sentencia->execute(array($replace,$id));
     }
 
 }

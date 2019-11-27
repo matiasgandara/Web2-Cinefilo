@@ -14,8 +14,10 @@
       <th scope="row"><a method="GET" href="borrar_categoria/{$categoria->id}" class="btn btn-primary"> X </a></th>
       <td>{$categoria->id}</td>
       <td>{$categoria->genero}</td>
-      <td><input type="text" class="form-control " placeholder="GENERO" aria-describedby="basic-addon1" name="genero" method="POST">
-        <a method="POST" href="editar_categoria/{$categoria->id}" class="btn btn-primary">Modificar</a>
+      <td><form action="editar_categoria/{$categoria->id}" method="POST">
+          <input type="text" class="form-control " placeholder="GENERO" aria-describedby="basic-addon1" name="genero">
+          <button type="submit" value="editar_categoria/{$categoria->id}" class="btn btn-primary">Modificar</button>
+          </form>
         </td>
     </tr>
     {/foreach}
