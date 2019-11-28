@@ -1,25 +1,27 @@
 "use strict"
 
-// event listeners
-document.querySelector("#form_comentario").addEventListener('submit', addComentario);
 
-let btns = document.querySelectorAll(".btn_borrar");
-for (let i = 0; i < btns.length; i++) {
-    btns[i].addEventListener("click", function(e){
-        e.preventDefault();
-        let id = btns[i].getAttribute('data');
-        let apicom = "api/comentario/" + id;
+/* function agregarbtns(){
 
-        fetch(apicom, {
-            "method": 'DELETE',
-            "headers": {'Content-Type': 'application/json'}       
-        })
-        .then(response => {
-            getComentarios();
-        })
-        .catch(error => console.log(error));
-    });
-};
+    let btns = document.querySelectorAll(".btn_borrar");
+
+    for (let i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function(){
+
+            let id = btns[i].getAttribute('data');
+            let apicom = "api/comentario/"+id;
+
+            fetch(apicom, {
+                "method": 'DELETE',
+                "headers": {'Content-Type': 'application/json'}       
+            })
+            .then(response => {
+                getComentarios();
+            })
+            .catch(error => console.log(error));
+        });
+    } 
+}; */
 
 let idcom = document.querySelector("#id_film").getAttribute('data');
 // define la app Vue
@@ -27,6 +29,11 @@ let app = new Vue({
     el: "#vue_comentarios",
     data: {
         comentarios: [], 
+    },
+    methods : {
+        deleteComentario: function (idcomentario){
+            borrarComentario(idcomentario);
+        }
     }
 });
 
@@ -39,7 +46,7 @@ let app = new Vue({
         })
     .catch(error => console.log(error));
 
-    }
+    } 
 
     function addComentario(e){
         e.preventDefault();
@@ -71,8 +78,26 @@ let app = new Vue({
         }).then(() =>{
              getComentarios();
         }).catch(error => console.log(error));
+    };
+
+    function borrarComentario(idcomen){
+        let apicom = "api/comentario/"+idcomen;
+
+            fetch(apicom, {
+                "method": 'DELETE',
+                "headers": {'Content-Type': 'application/json'}       
+            })
+            .then(response => {
+                getComentarios();
+            })
+            .catch(error => console.log(error));
+        
     }
 
-    
-getComentarios();
+    document.addEventListener('DOMContentLoaded', function(){
+        document.querySelector("#form_comentario").addEventListener('submit', addComentario);
+        getComentarios();
+
+     });
+
 

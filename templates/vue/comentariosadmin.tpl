@@ -9,7 +9,8 @@
                             <h5 class="card-title">{{comentario.nombre_usuario}}</h5>
                             <p class="card-text">{{comentario.comentario}}</p>
                             <h6>Puntuacion<span class="badge badge-secondary">{{comentario.puntuacion}}</span></h6>
-                            <button class="btn btn-primary btn_borrar" v-bind:data="comentario.id">ELIMININAR</button>
+                            <button class="btn btn-primary" v-on:click="deleteComentario(comentario.id)">ELIMININAR</button>
+
                         </div>
                     </div>  
                 </div>  
