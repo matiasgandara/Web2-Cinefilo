@@ -7,10 +7,6 @@
                     <div class="card mb-1" style="max-width: 650px;">
                         <div class="row no-gutters">
                             {include file="carruselfilm.tpl"}
-                            
-                        {*  <div class="col-md-3">
-                                <img src={$film->nombre_imagen} class="card-img" alt="img">
-                            </div> *}
                             <div class="col-md-9">
                                 <div class="card-body">
                                 <h5 class="card-title" data="{$film->id}" id="id_pelicula"> {$film->nombre}</h5>
@@ -38,11 +34,11 @@
                 </div>
             </form>
             {include file="cargarimagenes.tpl"}
-        {include file="vue/comentariosadmin.tpl"} 
+        
 
         </div> 
     </div>  
 </div> 
-
+{include file="vue/comentariosadmin.tpl"}
 {include file="logged.tpl"}
 {include file="footer.tpl"}

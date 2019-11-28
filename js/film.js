@@ -23,8 +23,8 @@ let app = new Vue({
 
     }
 
-    function addComentario($params=NULL){
-        $params.preventDefault();
+    function addComentario(e){
+        e.preventDefault();
 
        let data = {
             "id_film":  document.querySelector("#id_film").getAttribute('data'),
@@ -50,9 +50,9 @@ let app = new Vue({
     function deleteComentario(){
         let apicom = "api/comentarios/" + idcom;
 
-        fetch(apicom, {
-            method: 'DELETE',
-            headers: {'Content-Type': 'application/json'}       
+        fetch("apicom", {
+            "method": 'DELETE',
+            "headers": {'Content-Type': 'application/json'}       
         })
         .then(response => {
             getComentarios();

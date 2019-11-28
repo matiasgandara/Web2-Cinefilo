@@ -19,7 +19,7 @@
     /* 
     $router->addRoute("home", "GET", "HomeController", "getHome"); */
     $router->addRoute("comentario", "POST", "filmApiController", "insertarComentario");
-    $router->addRoute("comentarios", "DELETE", "filmApiController", "eliminarComentario");
+    $router->addRoute("comentario", "DELETE", "filmApiController", "eliminarComentario");
     $router->addRoute("comentarios/:ID", "GET", "filmApiController", "getComentarios");
     $router->addRoute("peliculas", "GET", "filmApiController", "getPeliculas");
     $router->addRoute("pelicula/:ID","GET","filmApiController", "getFilm");
