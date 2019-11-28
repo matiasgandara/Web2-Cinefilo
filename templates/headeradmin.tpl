@@ -18,7 +18,7 @@
   <!-- Inicio Nav -->
   <div class="container-fluid bg-dark">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark container ">
-      <a class="navbar-brand">
+      <a class="navbar-brand" href="home">
         <img src="image/cinefilo001.png" width="140" height="70" alt="logo de los cinéfilos">
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"

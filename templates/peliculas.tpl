@@ -1,5 +1,7 @@
 {include file="header.tpl"}
 {include file="peliculapresentacion.tpl"}
-{include file="listapeliculas.tpl"}
+<div class="container">
+    {include file="listapeliculas.tpl"}
+</div>
 {include file="login.tpl"}
 {include file="footer.tpl"}

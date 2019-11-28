@@ -44,7 +44,7 @@ class FilmApiController {
     }
 
     public function insertarComentario($params = []) {
-        var_dump("lalala");
+        var_dump("no llega...");
         die;
         $data = getData();
         $id = $this->model->insertarComentario($data->id_film, $data->nombre_usuario, $data->comentario, $data->puntuacion);

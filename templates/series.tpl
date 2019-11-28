@@ -2,7 +2,7 @@
 {include file="seriespresentacion.tpl"}
 <div class="container pt-3">
     <h2 class="display-3 lead">Series</h2>
-    <div class="marco">
+    <div class="container">
         {include file="listaseries.tpl"}
     </div>
 </div>
