@@ -1,14 +1,5 @@
 <div class="bloque-contenido pt-1">
-   <div class="btn-group" role="group">
-      <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Categorias
-      </button>
-      <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-        {foreach $lista_categoria as $categoria}
-          <a class="dropdown-item" href="./peliculas/{$categoria->id}">{$categoria->genero}</a>
-        {/foreach}
-      </div>
-    </div>
+    {include file="pelicula_select_categoria.tpl"}
     <div class="card mb-4">{* ver *}
       <main class="pelis" role="main">
               {foreach $lista_peliculas as $peli}
@@ -31,6 +22,6 @@
                 </article>
               {/foreach}
         </main>
-      </div> 
+    </div> 
   </div> 
 </div> 

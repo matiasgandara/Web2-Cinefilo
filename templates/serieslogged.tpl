@@ -2,6 +2,7 @@
 {include file="seriespresentacion.tpl"}
 <div class="container pt-3">
     <h2 class="display-3 lead">Series</h2>
+    {include file="serie_select_categoria.tpl"}
     <div class="container">
         <div class="card-group">
             {foreach $lista_series as $serie}

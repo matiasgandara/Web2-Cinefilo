@@ -1,6 +1,7 @@
 {include file="header.tpl"}
 {include file="peliculapresentacion.tpl"}
 <div class="bloque-contenido pt-1">
+  {include file="pelicula_select_categoria.tpl"}
     <main class="pelis" role="main">
             {foreach $lista_peliculas as $peli}
               <article class="row" data={$peli->id}>                

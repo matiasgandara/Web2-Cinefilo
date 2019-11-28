@@ -26,7 +26,7 @@ class filmController{
             $elements++;
         }
         if ($elements != "0"){
-            $promedio = $suma/$elements;
+            $promedio = intval($suma/$elements);
             return($promedio);
         }else {
             return("0");

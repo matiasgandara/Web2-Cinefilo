@@ -3,7 +3,7 @@
         <div class="col-md-9">
             {include file="vue/comenta.tpl"}
                 {literal}
-                    <div id="vue_comentarios">      
+                    <div id="vue_comentarios" class="marco">      
                         <div v-for="comentario in comentarios" class="card w-75">
                             <div class="card-body">
                                 <h5 class="card-title">{{comentario.nombre_usuario}}</h5>

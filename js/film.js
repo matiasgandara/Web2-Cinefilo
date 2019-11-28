@@ -1,28 +1,5 @@
 "use strict"
 
-
-/* function agregarbtns(){
-
-    let btns = document.querySelectorAll(".btn_borrar");
-
-    for (let i = 0; i < btns.length; i++) {
-        btns[i].addEventListener("click", function(){
-
-            let id = btns[i].getAttribute('data');
-            let apicom = "api/comentario/"+id;
-
-            fetch(apicom, {
-                "method": 'DELETE',
-                "headers": {'Content-Type': 'application/json'}       
-            })
-            .then(response => {
-                getComentarios();
-            })
-            .catch(error => console.log(error));
-        });
-    } 
-}; */
-
 let idcom = document.querySelector("#id_film").getAttribute('data');
 // define la app Vue
 let app = new Vue({
