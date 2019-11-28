@@ -25,16 +25,22 @@ let app = new Vue({
 
     function addComentario(e){
         e.preventDefault();
+        let id_film = document.querySelector("#id_film").getAttribute('data');
+        let nombre_usuario = document.querySelector("#nombre_usuario").getAttribute('data');
+        let comentario = document.querySelector("#comentario").value;
+        let puntuacion = document.querySelector("#puntuacion").value;
+
 
        let data = {
-            "id_film":  document.querySelector("#id_film").getAttribute('data'),
-            "nombre_usuario":  document.querySelector("#nombre_usuario").getAttribute('data'),
-            "comentario":  document.querySelector("#comentario").value,
-            "puntuacion":  document.querySelector("#puntuacion").value
+            "id_film":  id_film,
+            "nombre_usuario": nombre_usuario,
+            "comentario":  comentario,
+            "puntuacion":  puntuacion
         }
         console.log(data);
+        let Ulr = encodeURI("api/comentario")
 
-        fetch( "api/comentario", {
+        fetch(Url, {
             "method": "POST",
             "headers": {"Content-Type": "application/json"},       
             "body": JSON.stringify(data)
