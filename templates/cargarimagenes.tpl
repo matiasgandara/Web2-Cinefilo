@@ -11,4 +11,4 @@
     <div class="btn-group py-2 px-1 container"  role="group" aria-label="Basic example "  class="justify-content-center">
             <button type="submit" value="insertar_imagenes/{$film->id}" class="btn bg-success text-white" name="btnGuardar">Cargar</button>
     </div>
-<form>
+</form>

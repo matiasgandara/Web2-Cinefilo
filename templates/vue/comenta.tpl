@@ -1,4 +1,4 @@
-    
+    <section>
     <form id="form_comentario"  method="POST">
         <div class="input-group">
             <div class="input-group-prepend">
@@ -16,4 +16,5 @@
             <button type="submit" class="btn btn-primary" >Comentar</button>
         </div>
     </form>
+    </section>
     

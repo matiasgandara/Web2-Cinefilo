@@ -5,7 +5,8 @@ document.querySelector("#form_comentario").addEventListener('submit', addComenta
 
 let btns = document.querySelectorAll(".btn_borrar");
 for (let i = 0; i < btns.length; i++) {
-    btns[i].addEventListener('click', function(){
+    btns[i].addEventListener("click", function(e){
+        e.preventDefault();
         let id = btns[i].getAttribute('data');
         let apicom = "api/comentario/" + id;
 
@@ -54,8 +55,6 @@ let app = new Vue({
             "comentario": comentario,
             "puntuacion": puntuacion
         }
-        console.log(data);
-
         let url = encodeURI("api/comentario");
 
         fetch(url, {
