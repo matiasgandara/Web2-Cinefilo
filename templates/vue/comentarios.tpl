@@ -11,6 +11,7 @@
                                 <h6>Puntuacion<span class="badge badge-secondary">{{comentario.puntuacion}}</span></h6>
                             </div>
                         </div>  
+                    </div>  
                 {/literal}  
         </div>
     </div>

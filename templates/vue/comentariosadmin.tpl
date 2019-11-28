@@ -9,11 +9,11 @@
                             <h5 class="card-title">{{comentario.nombre_usuario}}</h5>
                             <p class="card-text">{{comentario.comentario}}</p>
                             <h6>Puntuacion<span class="badge badge-secondary">{{comentario.puntuacion}}</span></h6>
-                            <button class="btn btn-primary btn_borrar" href="eliminarComentario">ELIMININAR</button>
+                            <button class="btn btn-primary btn_borrar">ELIMININAR</button>
                         </div>
                     </div>  
-                </div>
             {/literal}
-         </div>
+          </div>  
+        </div>
     </div>
 </div>
