@@ -16,6 +16,23 @@ class filmController{
         $this->helper = new AuthHelper();
     }
 
+
+    public function getPromedio($id){
+        $comentarios = $this->model->getComentarios($id);
+        $suma = 0;
+        $elements=0;
+        foreach ($comentarios as $comentario){
+            $suma+= $comentario->puntuacion;
+            $elements++;
+        }
+        if ($elements != "0"){
+            $promedio = $suma/$elements;
+            return($promedio);
+        }else {
+            return("0");
+        }
+    }
+
    
     public function getPeliculas(){
         $film = $this->model->getPeliculas();
@@ -35,12 +52,13 @@ class filmController{
         $id = $params[':ID'];
         $film = $this->model->getFilm($id);
         $imagen = $this->model->getImagenes($id);
+        $promedio = $this->getPromedio($id);
         if($this->helper->checkAdmin()){
             $user = $this->helper->getLoggedUserName();
-            $this->view->DisplayPeliculaAdmin($film, $imagen, $user);
+            $this->view->DisplayPeliculaAdmin($film, $imagen, $user,$promedio);
         }elseif ($this->helper->checkLoggedIn()) {
             $user = $this->helper->getLoggedUserName();
-            $this->view->DisplayPelicula($film, $imagen, $user);
+            $this->view->DisplayPelicula($film, $imagen, $user,$promedio);
         }else{
             header("Location: " . BASE_URL);
         }
@@ -50,13 +68,13 @@ class filmController{
         $id = $params[':ID'];
         $film = $this->model->getFilm($id);
         $imagen = $this->model->getImagenes($id);
-
+        $promedio = $this->getPromedio($id);
         if($this->helper->checkAdmin()){
             $user = $this->helper->getLoggedUserName();
-            $this->view->DisplaySerieAdmin($film, $imagen, $user);
+            $this->view->DisplaySerieAdmin($film, $imagen, $user,$promedio);
         }elseif ($this->helper->checkLoggedIn()) {
             $user = $this->helper->getLoggedUserName();
-            $this->view->DisplaySerie($film, $imagen, $user);
+            $this->view->DisplaySerie($film, $imagen, $user,$promedio);
         }else{
             header("Location: " . BASE_URL);
         }
@@ -253,6 +271,8 @@ class filmController{
                 header("Location: " . BASE_URL);
             }
         }
+
+     
       
 
 }

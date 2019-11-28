@@ -56,34 +56,38 @@ class FilmView {
         $smarty->display('templates/serieslogged.tpl');
     }
 
-    public function DisplayPelicula($film, $imagenes, $user){
+    public function DisplayPelicula($film, $imagenes, $user,$promedio){
         $smarty = new Smarty();
         $smarty->assign('film', $film);
         $smarty->assign('imagenes', $imagenes);
         $smarty->assign('idlogin', $user);
+        $smarty->assign('promedio', $promedio);
         $smarty->display('templates/pelicula.tpl');
     }
 
-    public function DisplaySerie($film, $imagenes, $user){
+    public function DisplaySerie($film, $imagenes, $user,$promedio){
         $smarty = new Smarty();
         $smarty->assign('film', $film);
         $smarty->assign('imagenes', $imagenes);
         $smarty->assign('idlogin', $user);
+        $smarty->assign('promedio', $promedio);
         $smarty->display('templates/serie.tpl');
     }
-    public function DisplayPeliculaAdmin($film, $imagenes,$user){
+    public function DisplayPeliculaAdmin($film, $imagenes,$user,$promedio){
         $smarty = new Smarty();
         $smarty->assign('film', $film);
         $smarty->assign('imagenes', $imagenes);
         $smarty->assign('idlogin', $user);
+        $smarty->assign('promedio', $promedio);
         $smarty->display('templates/peliculaadmin.tpl');
     }
 
-    public function DisplaySerieAdmin($film, $imagenes,$user){
+    public function DisplaySerieAdmin($film, $imagenes,$user,$promedio){
         $smarty = new Smarty();
         $smarty->assign('film', $film);
         $smarty->assign('imagenes', $imagenes);
         $smarty->assign('idlogin', $user);
+        $smarty->assign('promedio', $promedio);
         $smarty->display('templates/serieadmin.tpl');
     }
     
