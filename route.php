@@ -42,6 +42,7 @@ $r->addRoute("editar_serie/:ID", "POST", "FilmController", "editarSerie");
 $r->addRoute("insertar_pelicula", "POST", "FilmController", "insertarPelicula");
 $r->addRoute("insertar_serie", "POST", "FilmController", "insertarSerie");
 $r->addRoute("insertar_imagenes/:ID", "POST", "FilmController", "insertarImagenes");
+$r->addRoute("eliminarImagen/:ID", "GET", "FilmController", "BorrarImagen");
 $r->addRoute("borrar_pelicula/:ID", "GET", "FilmController", "borrarPelicula");
 $r->addRoute("borrar_serie/:ID", "GET", "FilmController", "borrarSerie");
 $r->addRoute("nosotros", "GET", "HomeController", "displayNos");

@@ -119,6 +119,11 @@ class filmModel extends PDO{
         return $target;
     }
 
+    private function deleteImage($id){
+        $sentencia = $this->db->prepare("DELETE FROM galeria WHERE id=?");
+        $sentencia->execute(array($id));
+    }
+
     public function getComentarios($id){
         $sentencia = $this->db->prepare("SELECT * from comentarios WHERE id_film = ? ");
         $sentencia->execute(array($id));

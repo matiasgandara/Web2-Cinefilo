@@ -222,6 +222,14 @@ class filmController{
 
         }
 
+        public function borrarImagen($params = null){
+            $id = $params[':ID'];
+            if($this->helper->checkAdmin()){
+                $this->model->deleteImage($id);
+                header("Location: " . BASE_URL); 
+            }
+        }
+
         public function borrarCategoria($params = null){
             $id = $params[':ID'];
             if($this->helper->checkAdmin()){
