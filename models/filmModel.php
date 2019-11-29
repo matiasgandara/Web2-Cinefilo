@@ -20,7 +20,7 @@ class filmModel extends PDO{
     public function getPeliculasId($id){
             $sentencia = $this->db->prepare("SELECT * from film AS f JOIN categorias AS c ON c.genero = f.genero WHERE c.id = ? AND f.tipo = 'peliculas' ORDER BY nombre ASC");
             $sentencia->execute(array($id));
-            $peliculas = $sentencia->fetch(PDO::FETCH_OBJ);
+            $peliculas = $sentencia->fetchAll(PDO::FETCH_OBJ);
             return $peliculas;
     }
 
@@ -41,7 +41,7 @@ class filmModel extends PDO{
     public function getSeriesId($id){
             $sentencia = $this->db->prepare("SELECT * from film AS f JOIN categorias AS c ON c.genero = f.genero WHERE c.id = ? AND f.tipo = 'series' ORDER BY nombre ASC");
             $sentencia->execute(array($id));
-            $series = $sentencia->fetch(PDO::FETCH_OBJ);
+            $series = $sentencia->fetchAll(PDO::FETCH_OBJ);
             return $series;
     }
 
