@@ -28,7 +28,9 @@ class AuthHelper{
         }
     
         public function checkLoggedIn() {
+            if (!isset($_SESSION)){
             session_start();
+            }
             if (!isset($_SESSION['ID_USER'])) {
                 return false;
             }else{
