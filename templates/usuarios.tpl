@@ -12,7 +12,8 @@
     <tr>
       <td>{$us->nombre_usuario}</td>
       <td>{$us->administrador}</td>
-      <td><a method="GET" href="darAdmin/{$us->id}" class="btn btn-primary">Cambiar</a></td>
+      <td><a method="GET" href="darAdmin/{$us->id}" class="btn btn-primary">Dar Admin</a></td>
+      <td><a method="GET" href="quitarAdmin/{$us->id}" class="btn btn-primary">Quitar Admin</a></td>
     </tr>
     {/foreach}
   </tbody>

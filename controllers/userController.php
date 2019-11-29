@@ -44,6 +44,8 @@ class UserController {
         if(!empty($user) && $pass1 == $pass2){
             $clave = password_hash($pass1, PASSWORD_DEFAULT);
             $this->model->registro($user, $clave);
+            $username = $this->model->GetPassword($user);
+            $this->authHelper->login($username);
             header('Location: ' . BASE_URL);
         }else{
             header('Location: ' . BASE_URL);
@@ -62,8 +64,18 @@ class UserController {
 
     public function darAdmin($params = NULL){
         $id = $params[':ID'];
+        $valor = 1;
         if($this->authHelper->checkAdmin()){
-            $this->model->editarAdmin($id);
+            $this->model->editarAdmin($id, $valor);
+            header('Location: ' . USUARIOS);
+        }
+    }
+
+    public function quitarAdmin($params = NULL){
+        $id = $params[':ID'];
+        $valor = 0;
+        if($this->authHelper->checkAdmin()){
+            $this->model->editarAdmin($id, $valor);
             header('Location: ' . USUARIOS);
         }
     }

@@ -27,9 +27,9 @@ class userModel extends PDO{
         $sentencia->execute(array($id));
     }
 
-    public function editarAdmin($id){
-        $sentencia = $this->db->prepare("UPDATE usuarios SET administrador = 1 WHERE id = ?");
-        $sentencia->execute(array($id));
+    public function editarAdmin($id, $valor){
+        $sentencia = $this->db->prepare("UPDATE usuarios SET administrador = ? WHERE id = ?");
+        $sentencia->execute(array($valor, $id));
     }
 
     public function getUsuarios(){
