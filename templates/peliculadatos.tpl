@@ -8,8 +8,6 @@
                         <h5 class="card-title" id="id_film" data="{$film->id}">{$film->nombre}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">Genero: {$film->genero}</h6>
                         <h6 class="card-subtitle mb-2 text-muted">Duracion: {$film->duracion}</h6>
-                        <h6 class="card-subtitle mb-2 text-muted">PUNTUACION: {$promedio}</h6>
-                        {* <h1 class="text-hide" style="background-image: url('image/estrella.png'); width: 50px; height: 50px;">Puntuacion</h1> *}
                         <p class="card-text">Sinopsis: {$film->sinopsis}</p>
                     </div>
                 </div>

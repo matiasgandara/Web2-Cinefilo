@@ -2,6 +2,7 @@
 {include file="presentacion.tpl"}
 <div class="container">
     {include file="seriedatos.tpl"}
+    {include file="imagenesAdmin.tpl"}
     <form action="editar_serie/{$film->id}" method="POST" enctype="multipart/form-data">
         <div class="rounded border border-success my-1 mx-1">
           <input type="text" class="form-control " value="{$film->nombre}" aria-label="NOMBRE SERIE" aria-describedby="basic-addon1" name="nombre">
