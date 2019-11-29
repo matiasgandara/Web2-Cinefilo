@@ -2,6 +2,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
+      <th scope="col">ELIMINAR</th>
       <th scope="col">Nombre</th>
       <th scope="col">Admin</th>
       <th scope="col">Modificar</th>
@@ -10,6 +11,7 @@
   <tbody>
   {foreach from=$lista item=us}
     <tr>
+      <td><a method="GET" href="borrar_usuario/{$us->id}" class="btn btn-primary">X</a></td>
       <td>{$us->nombre_usuario}</td>
       <td>{$us->administrador}</td>
       <td><a method="GET" href="darAdmin/{$us->id}" class="btn btn-primary">Dar Admin</a></td>

@@ -29,9 +29,6 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active border-left">
-            <a class="nav-link " href="nosotros">Nosotros</a>
-          </li>
-          <li class="nav-item active border-left">
             <a class="nav-link  " href="registro">Registro</a>
           </li>
           <li class="nav-item active border-left">
