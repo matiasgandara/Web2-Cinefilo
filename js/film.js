@@ -82,8 +82,10 @@ let app = new Vue({
         app.comentarios.forEach(elemento =>{
             suma+= parseInt(elemento.puntuacion);
         });
-        let resultado = suma/app.comentarios.length;
-        app.promedio = resultado;
+        if(suma != 0){
+            let resultado = suma/app.comentarios.length;
+            app.promedio = resultado;
+        }
     }
 
     document.addEventListener('DOMContentLoaded', function(){
