@@ -52,6 +52,7 @@ $r->addRoute("borrar_categoria/:ID", "GET", "FilmController", "borrarCategoria")
 $r->addRoute("editar_categoria/:ID", "POST", "FilmController", "modificarCategoria");
 $r->addRoute("insertar_categoria", "POST", "FilmController", "insertarCategoria");
 $r->addRoute("usuarios", "GET", "userController", "getUsuarios");
+$r->addRoute("borrar_usuario/:ID", "GET", "UserController", "borrarUser");
 $r->addRoute("darAdmin/:ID", "GET", "userController", "darAdmin");
 $r->addRoute("quitarAdmin/:ID", "GET", "userController", "quitarAdmin");
 

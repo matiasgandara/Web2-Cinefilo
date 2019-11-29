@@ -79,5 +79,13 @@ class UserController {
             header('Location: ' . USUARIOS);
         }
     }
+
+    public function borrarUser($params = NULL){
+        $id = $params[':ID'];
+        if($this->authHelper->checkAdmin()){
+            $this->model->eliminarUser($id);
+            header('Location: ' . USUARIOS);
+        }
+    }
 }
 
