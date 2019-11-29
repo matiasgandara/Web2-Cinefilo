@@ -3,6 +3,7 @@
         <div class="col-md-9">
             {include file="vue/comenta.tpl"}         
             {literal}
+            <h3>EL PROMEDIO ES......<span class="badge badge-secondary">{{promedio}}</span></h3>
                 <div id="vue_comentarios">      
                     <div v-for="comentario in comentarios" class="card w-75">
                         <div class="card-body">

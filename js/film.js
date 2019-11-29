@@ -1,15 +1,20 @@
 "use strict"
 
 let idcom = document.querySelector("#id_film").getAttribute('data');
+let comentario = null;
 // define la app Vue
 let app = new Vue({
     el: "#vue_comentarios",
     data: {
         comentarios: [], 
+        promedio: 0,
     },
     methods : {
         deleteComentario: function (idcomentario){
             borrarComentario(idcomentario);
+        },
+        mostrarPromedio: function(){
+            app.promedio = getPromedio();
         }
     }
 });
@@ -20,6 +25,7 @@ let app = new Vue({
         .then(response => response.json())
         .then(comentarios => {
             app.comentarios = comentarios;
+            getPromedio();
         })
     .catch(error => console.log(error));
 
@@ -71,10 +77,24 @@ let app = new Vue({
         
     }
 
+    function getPromedio(){
+        let suma = 0;
+        app.comentarios.forEach(elemento =>{
+            suma+= parseInt(elemento.puntuacion);
+        });
+        let resultado = suma/app.comentarios.length;
+        console.log(resultado);
+        app.promedio = resultado;
+        console.log(app.promedio);
+        /* return(resultado); */
+    }
+
     document.addEventListener('DOMContentLoaded', function(){
         document.querySelector("#form_comentario").addEventListener('submit', addComentario);
         getComentarios();
+        console.log(app.promedio);
 
      });
+
 
 
